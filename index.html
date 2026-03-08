@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Calisthenics Sessions</title>
+  <style>
+    :root {
+      --bg: #f6f4f1;
+      --card: #ffffff;
+      --text: #1d1b19;
+      --muted: #6f6a63;
+      --line: #e7e1da;
+      --accent: #8b3a2e;
+      --accent-soft: #f7e8e4;
+      --good: #1f7a4c;
+      --warn: #9a6700;
+      --shadow: 0 8px 24px rgba(26, 20, 16, 0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: env(safe-area-inset-top) 14px calc(90px + env(safe-area-inset-bottom)) 14px;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #fff 0%, #fcfbf9 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-top: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.05;
+      margin: 12px 0 8px;
+      letter-spacing: -0.04em;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.86);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 13px 14px;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .tab.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .session { display: none; }
+    .session.active { display: block; }
+
+    .overview {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2, .card h3, .card h4 {
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      background: #f5f5f3;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 12px;
+      color: #4b4742;
+      font-weight: 700;
+    }
+
+    .explain {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #2b2825;
+    }
+
+    .flow {
+      margin-top: 16px;
+      display: grid;
+      gap: 14px;
+      position: relative;
+    }
+
+    .step {
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .step-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .step-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--text);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .time {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 12px;
+      line-height: 1.5;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin: 14px 0 8px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 0 0 8px;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .callout {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+      border: 1px solid var(--line);
+      background: #faf8f5;
+    }
+
+    .callout.warn {
+      background: #fff8e8;
+      border-color: #f1dfaf;
+      color: #6d5000;
+    }
+
+    .callout.good {
+      background: #edf9f1;
+      border-color: #b8e0c4;
+      color: #145a38;
+    }
+
+    .details {
+      margin-top: 10px;
+      border-top: 1px dashed var(--line);
+      padding-top: 10px;
+    }
+
+    .details summary {
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      list-style: none;
+    }
+
+    .details summary::-webkit-details-marker { display: none; }
+
+    .timer-box {
+      margin-top: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .timer-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-ghost { background: #f1efec; color: var(--text); border: 1px solid var(--line); }
+    .btn-good { background: #1f7a4c; color: white; }
+
+    .timer-display {
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .timer-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.45;
+      min-height: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .mini {
+      background: #fbfaf8;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .mini strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .footer-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+      z-index: 50;
+    }
+
+    .footer-nav-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+    }
+
+    .hr {
+      height: 1px;
+      background: var(--line);
+      margin: 14px 0;
+      border: 0;
+    }
+
+    .tiny {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <span class="badge">Calisthenics • Phone Workout Guide</span>
+    <h1>Session 1 & 2 — fully explained</h1>
+    <p class="sub">This is a standalone mobile workout guide built so you do not need to flip through PDFs, voice notes, or translations at the gym. Every block includes what to do, how to do it, and what each system means.</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="session1">Session 1</button>
+    <button class="tab" data-tab="session2">Session 2</button>
+  </div>
+
+  <section class="session active" id="session1">
+    <div class="overview card">
+      <h2>Session 1 — EMOMs + Pyramids on the basics</h2>
+      <div class="meta">
+        <span class="pill">Total time: about 1h35</span>
+        <span class="pill">Focus: base strength endurance</span>
+        <span class="pill">Main skills: pull-ups, dips, grip, core</span>
+      </div>
+      <p class="explain"><strong>What this session is for:</strong> learning how your coach uses <strong>EMOM</strong> and <strong>pyramid</strong> structures while finding your correct working level. The goal is not to destroy yourself. The goal is to find the right difficulty that is hard but sustainable.</p>
+      <div class="grid-2">
+        <div class="mini">
+          <strong>EMOM = Every Minute On the Minute</strong>
+          Start a set exactly when each new minute begins. If a set takes 30 seconds, you rest 30 seconds. If a set takes 50 seconds, you rest 10 seconds.
+        </div>
+        <div class="mini">
+          <strong>Pyramid</strong>
+          Reps or hold times increase to a peak, then decrease back down. Usually the goal is to finish quickly without breaking the prescribed sets.
+        </div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">1</span> Warm-up</div>
+            <span class="time">10–15 min</span>
+          </div>
+          <p class="desc">Use your coach's warm-up sheet. The goal is to prep shoulders, wrists, scapula, core, and hips before the real work starts.</p>
+          <div class="section-label">What to do</div>
+          <ul>
+            <li>Shoulder circles and rotations</li>
+            <li>Wrist prep and light forearm movement</li>
+            <li>Hip circles and leg mobility</li>
+            <li>Scapular pull-ups and light plank work</li>
+          </ul>
+          <div class="callout">You are not trying to get tired here. You are trying to feel warm, mobile, and switched on.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">2</span> Activation block</div>
+            <span class="time">5 min</span>
+          </div>
+          <p class="desc">This is the “mise en route” — a short cardio and activation block before the main sets.</p>
+          <div class="section-label">Do 3 rounds</div>
+          <ul>
+            <li>8 push-ups</li>
+            <li>20-second plank</li>
+            <li>Rest 30 seconds between rounds</li>
+          </ul>
+          <div class="callout">Optional: add a bit of jump rope or light cardio for 4–5 minutes if you still feel flat.</div>
+          <div class="timer-box">
+            <div class="section-label">Quick timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSimpleTimer('s1-activation', 5*60, 'Activation block running')">Start 5:00</button>
+              <button class="btn-ghost" onclick="stopTimer('s1-activation')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s1-activation">05:00</div>
+            <div class="timer-sub" id="sub-s1-activation"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">3</span> Pull-ups — EMOM</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">Every minute on the minute for 10 minutes. Start the set when each minute starts. This block is about finding your pull-up sweet spot.</p>
+          <div class="section-label">Choose 1 option</div>
+          <ul>
+            <li><strong>Option 1:</strong> 5 reps every minute for 10 minutes</li>
+            <li><strong>Option 2:</strong> 6 reps every minute for the first 5 minutes, then 5 reps every minute for the last 5 minutes</li>
+            <li><strong>Option 3:</strong> 6 reps every minute for 10 minutes</li>
+          </ul>
+          <div class="section-label">How to judge difficulty</div>
+          <ul>
+            <li>If you finish each set and still have rest left, you are on pace</li>
+            <li>If you start missing the minute, the option is too hard</li>
+            <li>If needed, drop down an option or use a light assistance band</li>
+          </ul>
+          <div class="callout good">Example: if 5 pull-ups take you 30 seconds, you rest 30 seconds and start again exactly at the next minute.</div>
+          <details class="details">
+            <summary>Open plain-English explanation</summary>
+            <div class="tiny">The point is not to take a fixed rest period. The clock controls the rest. Faster sets give you more rest. Slower sets give you less rest. That is what makes EMOMs effective for pacing, endurance, and honest effort.</div>
+          </details>
+          <div class="timer-box">
+            <div class="section-label">EMOM timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startEmom('s1-pullups', 10, 60)">Start 10-min EMOM</button>
+              <button class="btn-ghost" onclick="stopTimer('s1-pullups')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s1-pullups">10:00</div>
+            <div class="timer-sub" id="sub-s1-pullups">Starts a new round every 60 seconds</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">4</span> Squats — EMOM</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">Bodyweight squat EMOM. Simple, but do not get sloppy.</p>
+          <div class="section-label">Prescription</div>
+          <ul>
+            <li>14 squats every minute for 10 minutes</li>
+          </ul>
+          <div class="section-label">If it is too easy</div>
+          <ul>
+            <li>Do jump squats to build explosiveness</li>
+            <li>Or slow the descent to 2–3 seconds per rep to build strength and control</li>
+          </ul>
+          <div class="callout">Do not turn this into random fast reps. Stay clean, upright, and controlled.</div>
+          <div class="timer-box">
+            <div class="section-label">EMOM timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startEmom('s1-squats', 10, 60)">Start 10-min EMOM</button>
+              <button class="btn-ghost" onclick="stopTimer('s1-squats')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s1-squats">10:00</div>
+            <div class="timer-sub" id="sub-s1-squats">14 squats each minute</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">5</span> Dips — Pyramid</div>
+            <span class="time">15 min</span>
+          </div>
+          <p class="desc">Parallel bar dips. Climb to the top, then come back down. Finish as fast as you can without breaking any set.</p>
+          <div class="section-label">Rep sequence</div>
+          <ul>
+            <li>5, 6, 7, 8, 9, 10, 11, 12</li>
+            <li>11, 10, 9, 8, 7, 6, 5</li>
+          </ul>
+          <div class="callout warn">You cannot split a set. If the set says 12, you do 12 in one continuous set. Do not do 6 + 6.</div>
+          <details class="details">
+            <summary>When to modify this</summary>
+            <div class="tiny">If shoulders feel sketchy, cap the top at 10 instead of 12 and keep the form clean. Shoulder irritation is not a badge of honor.</div>
+          </details>
+          <div class="check"><input type="checkbox" id="s1-dips-done"><label for="s1-dips-done">Mark dips pyramid complete</label></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">6</span> Dead hang — Grip pyramid</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">This is pure grip endurance. The format is hold time followed by prescribed rest time.</p>
+          <div class="section-label">Sets</div>
+          <ul>
+            <li>Set 1: 50 sec hang / 75 sec rest</li>
+            <li>Set 2: 40 sec / 60 sec</li>
+            <li>Set 3: 30 sec / 45 sec</li>
+            <li>Set 4: 20 sec / 30 sec</li>
+            <li>Set 5: 10 sec / 15 sec</li>
+          </ul>
+          <div class="section-label">Technique</div>
+          <ul>
+            <li>Close your grip with the thumb under the bar</li>
+            <li>If you fall early, get right back on the bar</li>
+            <li>Chalk is fine if your grip is the limiting factor</li>
+          </ul>
+          <div class="callout">This is not passive hanging for relaxation. This is deliberate grip work.</div>
+          <div class="timer-box">
+            <div class="section-label">Guided interval timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSequence('s1-deadhang', [{label:'Hang 50s',sec:50},{label:'Rest 75s',sec:75},{label:'Hang 40s',sec:40},{label:'Rest 60s',sec:60},{label:'Hang 30s',sec:30},{label:'Rest 45s',sec:45},{label:'Hang 20s',sec:20},{label:'Rest 30s',sec:30},{label:'Hang 10s',sec:10},{label:'Rest 15s',sec:15}])">Start guided timer</button>
+              <button class="btn-ghost" onclick="stopTimer('s1-deadhang')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s1-deadhang">00:00</div>
+            <div class="timer-sub" id="sub-s1-deadhang">Alternates hang and rest automatically</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">7</span> Knee raises — EMOM</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">Core and grip block. A little swing is normal, but you still control the movement.</p>
+          <div class="section-label">Prescription</div>
+          <ul>
+            <li>8 hanging knee raises every minute for 10 minutes</li>
+          </ul>
+          <div class="section-label">Technique cues</div>
+          <ul>
+            <li>Exhale as the knees rise toward your belly</li>
+            <li>Inhale as the legs go back down</li>
+            <li>Slow the lowering phase for 2–3 seconds</li>
+          </ul>
+          <div class="callout warn">If hip flexors get irritated, swap to a safer core version rather than forcing ugly reps.</div>
+          <div class="timer-box">
+            <div class="section-label">EMOM timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startEmom('s1-knees', 10, 60)">Start 10-min EMOM</button>
+              <button class="btn-ghost" onclick="stopTimer('s1-knees')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s1-knees">10:00</div>
+            <div class="timer-sub" id="sub-s1-knees">8 reps each minute</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">8</span> Stretch</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">Use this as a real cooldown, not a rushed afterthought.</p>
+          <ul>
+            <li>Deltoids and rotator cuff</li>
+            <li>Chest, triceps, biceps, forearms</li>
+            <li>Lats, lower back, abs</li>
+            <li>Glutes and quads</li>
+          </ul>
+          <div class="timer-box">
+            <div class="section-label">Cooldown timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSimpleTimer('s1-stretch', 10*60, 'Stretching cooldown')">Start 10:00</button>
+              <button class="btn-ghost" onclick="stopTimer('s1-stretch')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s1-stretch">10:00</div>
+            <div class="timer-sub" id="sub-s1-stretch"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="session" id="session2">
+    <div class="overview card">
+      <h2>Session 2 — Pull-up volume, grip killer, push-up variations</h2>
+      <div class="meta">
+        <span class="pill">Total time: about 1h30</span>
+        <span class="pill">Focus: muscle-up prerequisites</span>
+        <span class="pill">Main skills: high-rep pulls, isometrics, push-up control</span>
+      </div>
+      <p class="explain"><strong>What this session is for:</strong> building the pull-up volume and grip strength your coach says you need before muscle-ups. This one is less about pacing and more about volume tolerance, isometric control, and good push-up positions.</p>
+      <div class="grid-2">
+        <div class="mini">
+          <strong>Free system</strong>
+          You rest based on feel, but not forever. Your coach's target is about 1:30 to 1:45 between pull-up sets.
+        </div>
+        <div class="mini">
+          <strong>Grip killer</strong>
+          A 3-stage pull-up bar hold: bottom, middle, top. You stay on the bar through the whole set.
+        </div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">1</span> Warm-up</div>
+            <span class="time">10–15 min</span>
+          </div>
+          <p class="desc">Same warm-up logic as Session 1. You want the joints awake before you load the pulling volume.</p>
+          <ul>
+            <li>Shoulders and wrists first</li>
+            <li>Scapular activation</li>
+            <li>Light core and hip mobility</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">2</span> Activation block</div>
+            <span class="time">5 min</span>
+          </div>
+          <p class="desc">A few reps for pull, legs, and push. Enough to wake up. Not enough to get tired.</p>
+          <div class="section-label">Do 3 rounds</div>
+          <ul>
+            <li>3 scapular pull-ups</li>
+            <li>12 squats</li>
+            <li>8 push-ups</li>
+            <li>Rest 30 seconds</li>
+          </ul>
+          <div class="callout">Your coach said you can increase these slightly if needed, but do not be gassed before the main work starts.</div>
+          <div class="timer-box">
+            <div class="section-label">Quick timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSimpleTimer('s2-activation', 5*60, 'Activation block running')">Start 5:00</button>
+              <button class="btn-ghost" onclick="stopTimer('s2-activation')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s2-activation">05:00</div>
+            <div class="timer-sub" id="sub-s2-activation"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">3</span> Pull-ups — Volume sets</div>
+            <span class="time">15 min</span>
+          </div>
+          <p class="desc">This is straightforward volume work. The target is to get comfortable with large pull-up sets because your coach sees that as a prerequisite for muscle-ups.</p>
+          <div class="section-label">Prescription</div>
+          <ul>
+            <li>5 sets of 10 pull-ups</li>
+            <li>Rest 1:30 to 1:45 between sets</li>
+            <li>If needed, use a light or stronger band but do not break the set</li>
+            <li>If 10 feels too easy, go to 11 or 12 reps</li>
+          </ul>
+          <div class="callout good">The coach's intent is clear: get used to sets in the 10–15 rep range.</div>
+          <div class="timer-box">
+            <div class="section-label">Rest timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSimpleTimer('s2-rest90', 90, 'Rest between pull-up sets')">Start 1:30</button>
+              <button class="btn-good" onclick="startSimpleTimer('s2-rest105', 105, 'Longer rest between pull-up sets')">Start 1:45</button>
+              <button class="btn-ghost" onclick="stopTimer('s2-rest90'); stopTimer('s2-rest105')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s2-rest90">01:30</div>
+            <div class="timer-sub" id="sub-s2-rest90">Use 1:30–1:45 between sets</div>
+          </div>
+          <div class="check"><input type="checkbox" id="s2-pulls-done"><label for="s2-pulls-done">Mark pull-up volume complete</label></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">4</span> Front lunges — Pyramid</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">A long lunge pyramid. Finish as fast as possible without breaking the prescribed reps.</p>
+          <div class="section-label">Rep sequence</div>
+          <ul>
+            <li>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</li>
+            <li>10, 9, 8, 7, 6, 5, 4, 3, 2, 1</li>
+          </ul>
+          <div class="section-label">Important</div>
+          <ul>
+            <li>Each number is per leg</li>
+            <li>Example: set 6 = 6 right + 6 left</li>
+            <li>Your coach suggests forward lunges one way and reverse lunges on the way back if you want variation</li>
+          </ul>
+          <div class="callout warn">This is a lot of reps. Keep your torso stable and knees tracking clean. Do not rush into trash form.</div>
+          <div class="check"><input type="checkbox" id="s2-lunges-done"><label for="s2-lunges-done">Mark lunge pyramid complete</label></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">5</span> Grip killer — 3-stage isometric holds</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">This is the signature block of the session. You hang from the pull-up bar and move through three hold positions without leaving the bar.</p>
+          <div class="section-label">Three positions</div>
+          <ul>
+            <li><strong>Stage 1:</strong> Dead hang — arms straight</li>
+            <li><strong>Stage 2:</strong> Middle position — head just under the bar</li>
+            <li><strong>Stage 3:</strong> Top position — chin above the bar</li>
+          </ul>
+          <div class="section-label">Sets</div>
+          <ul>
+            <li>Set 1: 5s bottom / 5s middle / 5s top</li>
+            <li>Set 2: 5s / 10s / 10s</li>
+            <li>Set 3: 5s / 10s / 15s</li>
+            <li>Set 4: 5s / 10s / 10s</li>
+            <li>Set 5: 5s / 5s / 5s</li>
+          </ul>
+          <div class="section-label">What makes this hard</div>
+          <ul>
+            <li>You stay on the bar through the whole set</li>
+            <li>This routine uses concentric work to get into position, then isometric holds</li>
+            <li>There is no easing down with a slow eccentric to make it easier</li>
+          </ul>
+          <div class="callout">Count from 0. Close your grip around the bar with your thumb under the bar. Do not get loose and sloppy.</div>
+          <div class="timer-box">
+            <div class="section-label">Guided timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSequence('s2-grip', [{label:'Set 1 — bottom 5s',sec:5},{label:'Set 1 — middle 5s',sec:5},{label:'Set 1 — top 5s',sec:5},{label:'Rest 20s',sec:20},{label:'Set 2 — bottom 5s',sec:5},{label:'Set 2 — middle 10s',sec:10},{label:'Set 2 — top 10s',sec:10},{label:'Rest 20s',sec:20},{label:'Set 3 — bottom 5s',sec:5},{label:'Set 3 — middle 10s',sec:10},{label:'Set 3 — top 15s',sec:15},{label:'Rest 20s',sec:20},{label:'Set 4 — bottom 5s',sec:5},{label:'Set 4 — middle 10s',sec:10},{label:'Set 4 — top 10s',sec:10},{label:'Rest 20s',sec:20},{label:'Set 5 — bottom 5s',sec:5},{label:'Set 5 — middle 5s',sec:5},{label:'Set 5 — top 5s',sec:5}])">Start guided timer</button>
+              <button class="btn-ghost" onclick="stopTimer('s2-grip')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s2-grip">00:00</div>
+            <div class="timer-sub" id="sub-s2-grip">Includes default 20-second rests between sets</div>
+          </div>
+          <details class="details">
+            <summary>Open execution notes</summary>
+            <div class="tiny">Middle position means your head is just under the bar, not half-repping randomly. Top means chin clearly over the bar. If your shoulders feel unstable at the top, stop before the position gets sloppy.</div>
+          </details>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">6</span> Push-up variations</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">Eight total sets. The hand position changes across the workout so the mechanics shift while the difficulty stays roughly balanced.</p>
+          <div class="section-label">Sets and reps</div>
+          <ul>
+            <li>Sets 1–2: Elevated push-ups — 12 reps</li>
+            <li>Sets 3–4: Diamond push-ups — 12 reps</li>
+            <li>Sets 5–6: Wide push-ups — 15 reps</li>
+            <li>Sets 7–8: Regular push-ups — 15 reps</li>
+          </ul>
+          <div class="section-label">How each one should feel</div>
+          <ul>
+            <li><strong>Elevated:</strong> feet on a small box or support so more load goes to chest and shoulders</li>
+            <li><strong>Diamond:</strong> elbows stay closer to the body, more triceps demand</li>
+            <li><strong>Wide:</strong> hands wider than shoulders, more chest and front delt involvement</li>
+            <li><strong>Regular:</strong> about a 45-degree elbow angle</li>
+          </ul>
+          <div class="callout">If wrists get irritated on elevated push-ups, use handles or parallettes.</div>
+          <div class="check"><input type="checkbox" id="s2-push-done"><label for="s2-push-done">Mark push-up block complete</label></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">7</span> Finisher</div>
+            <span class="time">5 min</span>
+          </div>
+          <p class="desc">Rest first. Then hit one all-out set of pull-ups and immediately one all-out set of push-ups.</p>
+          <div class="section-label">Sequence</div>
+          <ul>
+            <li>Rest 3–4 minutes</li>
+            <li>Max pull-ups</li>
+            <li>No rest</li>
+            <li>Max push-ups</li>
+          </ul>
+          <div class="section-label">Coach's advice</div>
+          <ul>
+            <li>Go in with a realistic target number already in mind</li>
+            <li>If your fresh pull-up max is 15, a good post-workout target might be 12</li>
+            <li>If your fresh push-up max is 60, a realistic post-workout target might be 40–45</li>
+          </ul>
+          <div class="timer-box">
+            <div class="section-label">Pre-finisher rest timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSimpleTimer('s2-finisher-rest', 180, 'Rest before max sets')">Start 3:00</button>
+              <button class="btn-good" onclick="startSimpleTimer('s2-finisher-rest', 240, 'Rest before max sets')">Start 4:00</button>
+              <button class="btn-ghost" onclick="stopTimer('s2-finisher-rest')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s2-finisher-rest">03:00</div>
+            <div class="timer-sub" id="sub-s2-finisher-rest">Rest fully before the finisher</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-card">
+          <div class="step-top">
+            <div class="step-title"><span class="step-num">8</span> Stretch</div>
+            <span class="time">10 min</span>
+          </div>
+          <p class="desc">Finish by loosening up the upper body and hips.</p>
+          <ul>
+            <li>Shoulders and rotator cuff</li>
+            <li>Chest and triceps</li>
+            <li>Biceps and forearms</li>
+            <li>Lats, lower back, abs</li>
+            <li>Glutes and quads</li>
+          </ul>
+          <div class="timer-box">
+            <div class="section-label">Cooldown timer</div>
+            <div class="timer-row">
+              <button class="btn-primary" onclick="startSimpleTimer('s2-stretch', 10*60, 'Stretching cooldown')">Start 10:00</button>
+              <button class="btn-ghost" onclick="stopTimer('s2-stretch')">Stop</button>
+            </div>
+            <div class="timer-display" id="display-s2-stretch">10:00</div>
+            <div class="timer-sub" id="sub-s2-stretch"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-nav">
+    <div class="footer-nav-inner">
+      <button class="tab active" data-tab="session1" onclick="switchTab('session1', this)">Open Session 1</button>
+      <button class="tab" data-tab="session2" onclick="switchTab('session2', this)">Open Session 2</button>
+    </div>
+    <div class="note">Tip: once hosted, add this page to your home screen on your phone for one-tap access.</div>
+  </div>
+
+  <script>
+    const timers = {};
+
+    function fmt(sec) {
+      const m = Math.floor(sec / 60).toString().padStart(2, '0');
+      const s = Math.max(0, sec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function beep() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = 880;
+        gain.gain.value = 0.03;
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.18);
+      } catch (e) {}
+    }
+
+    function setDisplay(id, sec, sub='') {
+      const display = document.getElementById(`display-${id}`);
+      const subEl = document.getElementById(`sub-${id}`);
+      if (display) display.textContent = fmt(sec);
+      if (subEl && sub !== undefined) subEl.textContent = sub;
+    }
+
+    function stopTimer(id) {
+      if (timers[id]) {
+        clearInterval(timers[id]);
+        delete timers[id];
+      }
+    }
+
+    function startSimpleTimer(id, seconds, label='') {
+      stopTimer(id);
+      let remaining = seconds;
+      setDisplay(id, remaining, label);
+      timers[id] = setInterval(() => {
+        remaining--;
+        setDisplay(id, remaining, label);
+        if (remaining <= 0) {
+          beep();
+          stopTimer(id);
+          setDisplay(id, 0, 'Done');
+        }
+      }, 1000);
+    }
+
+    function startEmom(id, rounds, intervalSec) {
+      stopTimer(id);
+      let total = rounds * intervalSec;
+      let round = 1;
+      setDisplay(id, total, `Round ${round} of ${rounds} — start reps now`);
+      beep();
+      timers[id] = setInterval(() => {
+        total--;
+        const elapsed = rounds * intervalSec - total;
+        const currentRound = Math.min(rounds, Math.floor(elapsed / intervalSec) + 1);
+        const secInRound = elapsed % intervalSec;
+        let sub = `Round ${currentRound} of ${rounds}`;
+        if (secInRound === 0 && total > 0) {
+          beep();
+          sub = `Round ${currentRound} of ${rounds} — start reps now`;
+        }
+        setDisplay(id, total, sub);
+        if (total <= 0) {
+          beep();
+          stopTimer(id);
+          setDisplay(id, 0, 'EMOM complete');
+        }
+      }, 1000);
+    }
+
+    function startSequence(id, sequence) {
+      stopTimer(id);
+      let idx = 0;
+      let remaining = sequence[0].sec;
+      setDisplay(id, remaining, sequence[0].label);
+      beep();
+      timers[id] = setInterval(() => {
+        remaining--;
+        setDisplay(id, remaining, sequence[idx].label);
+        if (remaining <= 0) {
+          idx++;
+          beep();
+          if (idx >= sequence.length) {
+            stopTimer(id);
+            setDisplay(id, 0, 'Sequence complete');
+            return;
+          }
+          remaining = sequence[idx].sec;
+          setDisplay(id, remaining, sequence[idx].label);
+        }
+      }, 1000);
+    }
+
+    function switchTab(tabName, buttonEl) {
+      document.querySelectorAll('.session').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      document.querySelectorAll(`[data-tab="${tabName}"]`).forEach(btn => btn.classList.add('active'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('.tabs .tab').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab, btn));
+    });
+  </script>
+</body>
+</html>

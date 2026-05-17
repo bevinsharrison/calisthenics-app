@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Calisthenics — Sessions 9 & 10</title>
+  <title>Calisthenics — Sessions 11 & 12</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -28,12 +28,10 @@
       --radius: 20px;
       --shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-tap-highlight-color: transparent; }
-    body { max-width: 680px; margin: 0 auto; padding: 16px 14px calc(104px + env(safe-area-inset-bottom)) 14px; }
+    body { max-width: 680px; margin: 0 auto; padding: 16px 14px calc(60px + env(safe-area-inset-bottom)) 14px; }
 
-    /* HERO */
     .hero { margin-top: 14px; margin-bottom: 18px; padding: 0 4px; }
     .hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
     .hero-eyebrow::before { content: ''; display: block; width: 18px; height: 2px; background: var(--orange); }
@@ -44,29 +42,19 @@
     .star-on { color: var(--orange); }
     .star-off { color: var(--line); }
 
-    /* INTENSITY BANNER */
-    .intensity-banner {
-      display: flex; gap: 12px; align-items: flex-start;
-      background: linear-gradient(135deg, var(--orange-dim), transparent);
-      border: 1px solid var(--orange-dim);
-      border-left: 3px solid var(--orange);
-      padding: 12px 14px; border-radius: 12px; margin-bottom: 16px;
-    }
+    .intensity-banner { display: flex; gap: 12px; align-items: flex-start; background: linear-gradient(135deg, var(--orange-dim), transparent); border: 1px solid var(--orange-dim); border-left: 3px solid var(--orange); padding: 12px 14px; border-radius: 12px; margin-bottom: 16px; }
     .intensity-icon { font-size: 22px; flex-shrink: 0; line-height: 1; padding-top: 2px; }
     .intensity-text { font-size: 13px; line-height: 1.5; color: #cbc6bd; }
     .intensity-text strong { display: block; color: var(--text); margin-bottom: 4px; font-size: 14px; }
 
-    /* TABS */
     .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; padding: 4px; background: var(--card); border-radius: 14px; border: 1px solid var(--line); }
     .tab { background: transparent; border: none; color: var(--muted); padding: 10px 8px; border-radius: 10px; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .tab.active { background: var(--card2); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
     .tab-label-small { font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: .02em; }
     .tab.active .tab-label-small { color: var(--orange); }
-
     .session { display: none; }
     .session.active { display: block; }
 
-    /* OVERVIEW */
     .overview-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px; margin-bottom: 16px; }
     .overview-title { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.15; margin-bottom: 8px; }
     .overview-sub { font-size: 13px; color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
@@ -79,12 +67,10 @@
     .pill.purple { background: var(--purple-dim); color: var(--purple); border-color: rgba(160,125,232,0.3); }
     .pill.new { background: var(--red-dim); color: var(--red); border-color: rgba(224,91,75,0.4); }
 
-    /* COACH NOTE */
     .coach-note { background: var(--card2); border-radius: 14px; padding: 14px; border-left: 3px solid var(--orange); }
     .coach-note-header { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
     .coach-note-body { font-size: 13px; line-height: 1.55; color: #cbc6bd; font-style: italic; }
 
-    /* BLOCK */
     .block { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; transition: all .2s; }
     .block.open { box-shadow: var(--shadow); }
     .block-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; user-select: none; }
@@ -104,7 +90,6 @@
     .block.open .block-body { display: block; }
     .block .new-badge { font-size: 9px; font-weight: 800; letter-spacing: .08em; background: var(--red); color: white; padding: 2px 5px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; }
 
-    /* CALLOUT */
     .callout { background: var(--card2); border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.55; color: #cbc6bd; margin-top: 10px; }
     .callout strong { color: var(--text); }
     .callout.tip { border-left: 3px solid var(--accent); }
@@ -116,14 +101,8 @@
     .callout.coach .callout-title { color: var(--orange); }
     .callout.green .callout-title { color: var(--green); }
 
-    /* CYCLES */
     .cycles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
-    .cycle-pip {
-      aspect-ratio: 1; border-radius: 14px;
-      background: var(--card2); border: 2px solid var(--line);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-      font-weight: 800; font-size: 12px; color: var(--muted); cursor: pointer; transition: all .2s;
-    }
+    .cycle-pip { aspect-ratio: 1; border-radius: 14px; background: var(--card2); border: 2px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-weight: 800; font-size: 12px; color: var(--muted); cursor: pointer; transition: all .2s; }
     .cycle-pip.done { background: var(--green-dim); border-color: var(--green); color: var(--green); }
     .cycle-pip-num { font-family: 'DM Serif Display', serif; font-size: 28px; line-height: 1; }
     .cycle-pip-label { font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
@@ -134,92 +113,16 @@
     .exercise-item-name { color: var(--text); }
     .exercise-item-reps { color: var(--orange); font-weight: 700; font-size: 13px; }
 
-    /* OPTION SELECTOR */
     .option-grid { display: grid; gap: 8px; margin-top: 10px; }
-    .option-btn {
-      background: var(--card2); border: 1px solid var(--line); border-radius: 12px;
-      padding: 12px 14px; cursor: pointer; transition: all .15s;
-      display: flex; flex-direction: column; gap: 4px; text-align: left;
-      font-family: inherit; color: var(--text);
-    }
+    .option-btn { background: var(--card2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: all .15s; display: flex; flex-direction: column; gap: 4px; text-align: left; font-family: inherit; color: var(--text); }
     .option-btn.selected { background: var(--orange-dim); border-color: var(--orange); }
     .option-btn-label { font-size: 13px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
     .option-btn-tag { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: var(--card); color: var(--muted); letter-spacing: .04em; }
     .option-btn.selected .option-btn-tag { background: var(--orange); color: var(--bg); }
     .option-btn-detail { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
-    /* CUMULATIVE TIMER */
-    .cumul-card {
-      background: linear-gradient(135deg, var(--blue-dim), var(--card2));
-      border: 1px solid rgba(91,156,232,0.3);
-      border-radius: 16px; padding: 16px; margin-top: 12px; text-align: center;
-    }
-    .cumul-label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
-    .cumul-time { font-family: 'DM Serif Display', serif; font-size: 56px; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
-    .cumul-time.complete { color: var(--green); }
-    .cumul-target { font-size: 12px; color: var(--muted); margin: 6px 0 12px; }
-    .cumul-bar { height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
-    .cumul-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--accent)); transition: width .3s; border-radius: 999px; }
-    .cumul-controls { display: flex; gap: 8px; justify-content: center; }
-    .cumul-btn { background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: 10px 14px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .15s; }
-    .cumul-btn.primary { background: var(--blue); color: var(--bg); border-color: var(--blue); }
-    .cumul-btn.primary:active { transform: scale(0.97); }
-    .cumul-btn.danger { color: var(--red); border-color: rgba(224,91,75,0.3); }
-
-    /* SET TRACKER */
-    .set-tracker { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-    .set-pip {
-      flex: 1; min-width: 56px; aspect-ratio: 1.4;
-      background: var(--card2); border: 2px solid var(--line);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--muted);
-      cursor: pointer; transition: all .15s; user-select: none;
-    }
-    .set-pip.done { background: var(--green-dim); border-color: var(--green); color: var(--green); }
-    .set-pip:active { transform: scale(0.95); }
-
-    /* INVERTED PYRAMID */
-    .pyramid-wrap { margin-top: 14px; display: grid; gap: 8px; }
-    .pyramid-row {
-      background: var(--card2); border: 1px solid var(--line);
-      border-radius: 14px; overflow: hidden;
-    }
-    .pyramid-row.peak { border-color: rgba(232,197,71,0.4); background: linear-gradient(135deg, var(--accent-dim), var(--card2)); }
-    .pyramid-row-head {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; gap: 10px;
-    }
-    .pyramid-set-label {
-      font-family: 'DM Serif Display', serif; font-size: 17px; line-height: 1;
-      color: var(--text);
-    }
-    .pyramid-row.peak .pyramid-set-label { color: var(--accent); }
-    .pyramid-set-tag { font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
-    .pyramid-set-total { font-size: 11px; color: var(--muted); margin-left: auto; }
-    .pyramid-pips {
-      display: flex; gap: 4px; padding: 0 14px 12px;
-    }
-    .pyramid-pip {
-      flex: 1; padding: 8px 6px; border-radius: 10px;
-      background: var(--bg); border: 1px solid var(--line);
-      display: flex; flex-direction: column; align-items: center; gap: 2px;
-    }
-    .pyramid-pip-stage { font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
-    .pyramid-pip-time { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--text); font-variant-numeric: tabular-nums; }
-    .pyramid-pip.big .pyramid-pip-time { font-size: 22px; }
-    .pyramid-track-btn {
-      width: 100%; padding: 10px; background: var(--bg); color: var(--text);
-      border: none; border-top: 1px solid var(--line);
-      font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .pyramid-track-btn.done { background: var(--green-dim); color: var(--green); }
-
     /* COUNTER */
-    .counter-card {
-      background: var(--card2); border-radius: 14px; padding: 16px;
-      margin-top: 12px; text-align: center;
-    }
+    .counter-card { background: var(--card2); border-radius: 14px; padding: 16px; margin-top: 12px; text-align: center; }
     .counter-target { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; }
     .counter-value { font-family: 'DM Serif Display', serif; font-size: 64px; line-height: 1; margin: 6px 0; color: var(--orange); font-variant-numeric: tabular-nums; }
     .counter-bar { height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden; margin: 10px 0 14px; }
@@ -229,276 +132,137 @@
     .counter-btn.add { background: var(--orange); color: var(--bg); border-color: var(--orange); }
     .counter-btn.add:active { transform: scale(0.95); }
     .counter-btn.minus { color: var(--red); }
-    .counter-zone {
-      margin-top: 12px; padding: 8px 12px; border-radius: 10px;
-      background: var(--bg); font-size: 12px; color: var(--muted);
-    }
+    .counter-zone { margin-top: 12px; padding: 8px 12px; border-radius: 10px; background: var(--bg); font-size: 12px; color: var(--muted); }
     .counter-zone.in-range { background: var(--green-dim); color: var(--green); }
-    .counter-zone.over { background: var(--accent-dim); color: var(--accent); }
 
-    /* CHEST KILLER PYRAMID — special row */
-    .ck-row {
-      background: var(--card2); border: 1px solid var(--line);
-      border-radius: 14px; overflow: hidden;
-    }
-    .ck-row.peak { border-color: rgba(232,197,71,0.4); background: linear-gradient(135deg, var(--accent-dim), var(--card2)); }
-    .ck-row-head {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; gap: 10px;
-    }
-    .ck-set-label { font-family: 'DM Serif Display', serif; font-size: 17px; line-height: 1; color: var(--text); }
-    .ck-row.peak .ck-set-label { color: var(--accent); }
-    .ck-pips {
-      display: flex; gap: 4px; padding: 0 14px 12px;
-    }
-    .ck-pip {
-      flex: 1; padding: 8px 6px; border-radius: 10px;
-      background: var(--bg); border: 1px solid var(--line);
-      display: flex; flex-direction: column; align-items: center; gap: 2px;
-    }
-    .ck-pip-stage { font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-    .ck-pip-stage.reps { color: var(--orange); }
-    .ck-pip-stage.iso { color: var(--blue); }
-    .ck-pip-stage.rest { color: var(--green); }
-    .ck-pip-time { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--text); font-variant-numeric: tabular-nums; }
-    .ck-track-btn {
-      width: 100%; padding: 10px; background: var(--bg); color: var(--text);
-      border: none; border-top: 1px solid var(--line);
-      font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .ck-track-btn.done { background: var(--green-dim); color: var(--green); }
+    /* EMOM TIMER */
+    .emom-card { background: linear-gradient(135deg, var(--orange-dim), var(--card2)); border: 1px solid rgba(232,137,78,0.4); border-radius: 16px; padding: 16px; margin-top: 12px; }
+    .emom-readout { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
+    .emom-phase { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); padding: 5px 10px; border-radius: 999px; background: var(--bg); border: 1px solid rgba(232,137,78,0.3); }
+    .emom-phase.go { color: var(--green); border-color: rgba(76,175,125,0.4); }
+    .emom-phase.done { color: var(--muted); border-color: var(--line); }
+    .emom-time { font-family: 'DM Serif Display', serif; font-size: 56px; line-height: 1; color: var(--text); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+    .emom-min { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+    .emom-controls { display: flex; gap: 8px; }
+    .emom-btn { flex: 1; background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: 11px; border-radius: 12px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .15s; }
+    .emom-btn.primary { background: var(--orange); color: var(--bg); border-color: var(--orange); }
+    .emom-btn.primary:active { transform: scale(0.97); }
+    .emom-btn.danger { background: var(--card2); color: var(--red); border-color: rgba(224,91,75,0.3); }
 
-    /* STRETCH */
-    .stretch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 10px; }
-    .stretch-item {
-      background: var(--card2); border-radius: 8px; padding: 8px 10px;
-      font-size: 12px; color: #cbc6bd;
-    }
+    /* DOUBLE PYRAMID */
+    .dp-wrap { margin-top: 14px; display: grid; gap: 6px; }
+    .dp-row { background: var(--card2); border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; padding: 10px 12px; gap: 10px; cursor: pointer; transition: all .15s; }
+    .dp-row.done { border-color: var(--green); opacity: 0.6; }
+    .dp-row.peak { border-color: rgba(232,197,71,0.4); background: linear-gradient(135deg, var(--accent-dim), var(--card2)); }
+    .dp-set { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--text); min-width: 36px; }
+    .dp-hold { font-size: 12px; font-weight: 700; color: var(--orange); padding: 3px 8px; border-radius: 8px; background: var(--orange-dim); }
+    .dp-reps { font-size: 12px; font-weight: 700; color: var(--blue); padding: 3px 8px; border-radius: 8px; background: var(--blue-dim); }
+    .dp-check { margin-left: auto; font-size: 16px; color: var(--muted); }
+    .dp-row.done .dp-check { color: var(--green); }
+
+    /* SET TRACKER */
+    .set-tracker { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .set-pip { flex: 1; min-width: 48px; aspect-ratio: 1.4; background: var(--card2); border: 2px solid var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--muted); cursor: pointer; transition: all .15s; user-select: none; }
+    .set-pip.done { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+    .set-pip:active { transform: scale(0.95); }
+
+    /* ASHURA */
+    .ashura-card { background: linear-gradient(135deg, var(--red-dim), var(--card2)); border: 1px solid rgba(224,91,75,0.3); border-radius: 16px; padding: 16px; margin-top: 12px; }
+    .ashura-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--red); margin-bottom: 4px; }
+    .ashura-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+    .ashura-stage { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 6px; font-size: 13px; }
+    .ashura-stage-num { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--accent); min-width: 28px; }
+    .ashura-stage-detail { color: #cbc6bd; flex: 1; }
+    .ashura-stage-detail strong { color: var(--text); }
 
     /* LOG */
     .log-card { background: var(--card2); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-top: 12px; }
     .log-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
     .log-row { display: flex; gap: 8px; margin-bottom: 8px; }
     .log-row label { flex: 1; font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
-    .log-row input, .log-row textarea {
-      background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
-      padding: 9px 11px; color: var(--text); font-family: inherit; font-size: 13px;
-      width: 100%;
-    }
+    .log-row input, .log-row textarea { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px; color: var(--text); font-family: inherit; font-size: 13px; width: 100%; }
     .log-row textarea { min-height: 50px; resize: vertical; }
 
-    /* DIAGRAM */
-    .diagram-card {
-      background: var(--card2); border: 1px solid var(--line); border-radius: 14px;
-      padding: 14px; margin-top: 12px;
-    }
-    .diagram-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; text-align: center; }
-    .diagram-svg { width: 100%; height: auto; }
+    /* STRETCH */
+    .stretch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 10px; }
+    .stretch-item { background: var(--card2); border-radius: 8px; padding: 8px 10px; font-size: 12px; color: #cbc6bd; }
 
-    /* PLACEHOLDER */
-    .placeholder-card {
-      background: var(--card); border: 2px dashed var(--line); border-radius: var(--radius);
-      padding: 40px 20px; text-align: center; margin-bottom: 16px;
-    }
-    .placeholder-icon { font-size: 48px; margin-bottom: 12px; }
-    .placeholder-title { font-family: 'DM Serif Display', serif; font-size: 22px; margin-bottom: 8px; }
-    .placeholder-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
-    /* S10 LEGEND */
-    .s10-legend {
-      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-      padding: 12px 16px; margin-bottom: 12px;
-    }
-    .s10-legend-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-    .s10-legend-items { display: flex; gap: 12px; flex-wrap: wrap; }
-    .s10-legend-item { font-size: 12px; color: #cbc6bd; display: flex; align-items: center; gap: 6px; }
-    .s10-legend-badge { font-size: 10px; font-weight: 800; letter-spacing: .06em; padding: 3px 7px; border-radius: 6px; }
-
-    /* EFFORT CHART */
-    .effort-chart {
-      display: flex; align-items: flex-end; gap: 4px; height: 140px;
-      padding: 0 4px 24px; position: relative;
-    }
-    .effort-bar-wrap {
-      flex: 1; display: flex; flex-direction: column; align-items: center;
-      height: 100%; justify-content: flex-end; position: relative;
-    }
-    .effort-bar {
-      width: 100%; height: var(--h); border-radius: 6px 6px 2px 2px;
-      transition: height .3s; min-height: 4px;
-    }
-    .effort-bar.b1 { background: var(--red); opacity: 0.7; }
-    .effort-bar.b2 { background: var(--orange); opacity: 0.7; }
-    .effort-bar.b3 { background: var(--green); opacity: 0.7; }
-    .effort-bar.b4 { background: var(--blue); opacity: 0.7; }
-    .effort-bar.b5 { background: var(--purple); opacity: 0.7; }
-    .effort-bar.peak { opacity: 1; }
-    .effort-val {
-      font-family: 'DM Serif Display', serif; font-size: 10px;
-      color: var(--text); margin-bottom: 2px;
-    }
-    .effort-label {
-      position: absolute; bottom: -20px;
-      font-size: 8px; font-weight: 700; color: var(--muted); letter-spacing: .04em;
-    }
-    .effort-legend {
-      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;
-      justify-content: center;
-    }
-    .effort-leg-item { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
-    .effort-leg-dot { width: 8px; height: 8px; border-radius: 3px; }
-    .effort-leg-dot.b1 { background: var(--red); }
-    .effort-leg-dot.b2 { background: var(--orange); }
-    .effort-leg-dot.b3 { background: var(--green); }
-    .effort-leg-dot.b4 { background: var(--blue); }
-    .effort-leg-dot.b5 { background: var(--purple); }
-
-    /* SUPERSET SET CARDS */
-    .ss-set-card {
-      background: var(--card2); border: 1px solid var(--line);
-      border-radius: 14px; padding: 12px 14px; margin-top: 8px;
-      transition: all .2s;
-    }
-    .ss-set-card.ss-peak {
-      border-color: rgba(232,197,71,0.4);
-      background: linear-gradient(135deg, var(--accent-dim), var(--card2));
-    }
-    .ss-set-card.completed {
-      border-color: var(--green); opacity: 0.65;
-    }
-    .ss-set-head {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
-    }
-    .ss-set-num {
-      font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--text);
-    }
-    .ss-set-effort {
-      font-size: 10px; font-weight: 700; color: var(--muted);
-      letter-spacing: .06em; text-transform: uppercase;
-      margin-left: auto;
-    }
-    .ss-mu-badge {
-      font-size: 9px; font-weight: 800; letter-spacing: .06em;
-      background: var(--accent-dim); color: var(--accent);
-      padding: 3px 7px; border-radius: 6px;
-    }
-    .ss-flow-row {
-      display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
-      padding: 8px 0;
-    }
-    .ss-chip {
-      font-size: 11px; font-weight: 700; padding: 5px 8px;
-      border-radius: 8px; white-space: nowrap;
-    }
-    .ss-chip.pmu { background: var(--purple-dim); color: var(--purple); }
-    .ss-chip.bd { background: var(--red-dim); color: var(--red); }
-    .ss-chip.pu { background: var(--blue-dim); color: var(--blue); }
-    .ss-sep { color: var(--muted); font-size: 10px; }
-    .ss-done-btn {
-      width: 100%; padding: 9px; background: var(--bg); color: var(--text);
-      border: 1px solid var(--line); border-radius: 10px; margin-top: 6px;
-      font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer;
-      transition: all .15s;
-    }
-    .ss-done-btn.done { background: var(--green-dim); color: var(--green); border-color: var(--green); }
-
-    /* S10 PROGRESS */
-    .s10-progress-card {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 16px; margin-bottom: 12px;
-      text-align: center;
-    }
-    .s10-progress-title {
-      font-family: 'DM Serif Display', serif; font-size: 18px; margin-bottom: 10px;
-    }
-    .s10-progress-bar {
-      height: 8px; background: var(--card2); border-radius: 999px;
-      overflow: hidden; margin-bottom: 8px;
-    }
-    .s10-progress-fill {
-      height: 100%; border-radius: 999px; transition: width .3s;
-      background: linear-gradient(90deg, var(--green), var(--accent));
-    }
-    .s10-progress-text { font-size: 12px; color: var(--muted); }
+    /* PROGRESSIVE EMOM */
+    .prog-emom-card { background: linear-gradient(135deg, var(--purple-dim), var(--card2)); border: 1px solid rgba(160,125,232,0.3); border-radius: 16px; padding: 16px; margin-top: 12px; }
+    .prog-emom-readout { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+    .prog-emom-phase { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--purple); padding: 5px 10px; border-radius: 999px; background: var(--bg); border: 1px solid rgba(160,125,232,0.3); }
+    .prog-emom-time { font-family: 'DM Serif Display', serif; font-size: 48px; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
+    .prog-emom-info { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+    .prog-emom-controls { display: flex; gap: 8px; }
+    .prog-emom-btn { flex: 1; background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: 11px; border-radius: 12px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .prog-emom-btn.primary { background: var(--purple); color: var(--bg); border-color: var(--purple); }
+    .prog-emom-btn.danger { color: var(--red); border-color: rgba(224,91,75,0.3); }
   </style>
 </head>
 <body>
 
   <div class="hero">
     <div class="hero-eyebrow">Calisthenics · Workout Guide</div>
-    <h1>Sessions <em>9 & 10</em></h1>
-    <p class="hero-sub">Front lever work, dragon flag introduction, inverted pyramids, and planche intro. <span class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span></span></p>
+    <h1>Sessions <em>11 & 12</em></h1>
+    <p class="hero-sub">Muscle-up optimization, pull-up variations, and the Ashura endurance routine. <span class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span></span></p>
   </div>
 
   <div class="intensity-banner">
-    <div class="intensity-icon">🎯</div>
+    <div class="intensity-icon">🔥</div>
     <div class="intensity-text">
-      <strong>Skill-focused week — beyond the muscle-up</strong>
-      Session 9 explores front lever holds, dragon flag negatives, and isometric pyramids. No muscle-up work on purpose — Quentin wants you building other skills. Session 10 brings it back with muscle-up elements plus a planche introduction.
+      <strong>Muscle-up consolidation + endurance</strong>
+      Session 11 focuses on muscle-up trajectory and timing, introduces X-grip (commando) pull-ups, and features a double pyramid for legs. Session 12 structures MU work into strict sets, introduces the Ashura pull-up endurance routine, and adds a progressive EMOM finisher.
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab active" data-tab="s9">Session 9<span class="tab-label-small">Front lever + dragon flag</span></button>
-    <button class="tab" data-tab="s10">Session 10<span class="tab-label-small">Superset pyramids ×15</span></button>
+    <button class="tab active" data-tab="s11">Session 11<span class="tab-label-small">MU optimization + variations</span></button>
+    <button class="tab" data-tab="s12">Session 12<span class="tab-label-small">Ashura endurance routine</span></button>
   </div>
 
   <!-- ============================================================ -->
-  <!-- ======================== SESSION 9 ========================= -->
+  <!-- ======================== SESSION 11 ======================== -->
   <!-- ============================================================ -->
-  <section class="session active" id="s9">
+  <section class="session active" id="s11">
 
     <div class="overview-card">
-      <div class="overview-title">Session 9 — Front Lever, Dragon Flag & Inverted Pyramids</div>
-      <div class="overview-sub">~1h30 total. A technical session: front lever holds (tuck or advanced tuck), wall sits with an inverted pyramid, dragon flag negatives, chest killer push-up/iso pyramid, and V-ups for planche prep. No muscle-up work — intentionally.</div>
+      <div class="overview-title">Session 11 — Muscle-Up Optimization & Pull-up Variations</div>
+      <div class="overview-sub">~1h40 total. Muscle-up work focusing on trajectory and timing (15–20 reps accumulated), a double pyramid of wall sits + squats, commando pull-ups and chin-ups, elevated push-ups EMOM, and optional low-bar plank holds.</div>
       <div class="pills">
-        <span class="pill orange">~1h30 total</span>
-        <span class="pill new">★ Front Lever</span>
-        <span class="pill new">★ Dragon Flag</span>
-        <span class="pill yellow">Inverted pyramids ×2</span>
-        <span class="pill blue">Skill-focused</span>
+        <span class="pill orange">~1h40 total</span>
+        <span class="pill yellow">MU trajectory</span>
+        <span class="pill new">★ X-grip / Commando PU</span>
+        <span class="pill green">Double pyramid</span>
+        <span class="pill blue">Chin-ups</span>
       </div>
-
       <div class="coach-note">
         <div class="coach-note-header">🎙 Coach's message</div>
-        <div class="coach-note-body">
-          "This session is more technical. It's not muscle-up oriented on purpose — I want you to explore other skills. You have front lever work, an introduction to the dragon flag, and pyramids. The V-ups at the end will be really helpful if you want to learn the planche one day. Don't hesitate to film yourself and send me videos for analysis."
-        </div>
+        <div class="coach-note-body">"I want you to work on the muscle-up trajectory, timing, everything. We also do new pull-up variations — commando pull-ups, also called X-grip. You'll feel your chest more and the weight won't be 50/50 — more like 70/30. It'll get you closer to one-arm pull-ups later."</div>
       </div>
     </div>
 
     <!-- WARM UP -->
-    <div class="block" id="b9-wu">
-      <div class="block-header" onclick="toggleBlock('b9-wu')">
+    <div class="block" id="b11-wu">
+      <div class="block-header" onclick="toggleBlock('b11-wu')">
         <div class="block-num muted">🔥</div>
-        <div class="block-title-area">
-          <div class="block-name">Warm-up</div>
-          <div class="block-meta">Refer to warm-up sheet · do once</div>
-        </div>
-        <span class="block-time">10 min</span>
-        <span class="block-chevron">▾</span>
+        <div class="block-title-area"><div class="block-name">Warm-up</div><div class="block-meta">Refer to warm-up sheet</div></div>
+        <span class="block-time">15 min</span><span class="block-chevron">▾</span>
       </div>
-      <div class="block-body">
-        <div class="callout">Standard warm-up. Refer to the échauffement sheet.</div>
-      </div>
+      <div class="block-body"><div class="callout">Standard warm-up. Refer to the échauffement sheet.</div></div>
     </div>
 
     <!-- MISE EN ROUTE -->
-    <div class="block" id="b9-mr">
-      <div class="block-header" onclick="toggleBlock('b9-mr')">
+    <div class="block" id="b11-mr">
+      <div class="block-header" onclick="toggleBlock('b11-mr')">
         <div class="block-num">1</div>
-        <div class="block-title-area">
-          <div class="block-name">Mise en route</div>
-          <div class="block-meta">3 cycles · 20s rest between cycles</div>
-        </div>
-        <span class="block-time">5 min</span>
-        <span class="block-chevron">▾</span>
+        <div class="block-title-area"><div class="block-name">Mise en route</div><div class="block-meta">3 cycles · 30s rest between cycles</div></div>
+        <span class="block-time">5 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
         <div class="exercise-list">
-          <div class="exercise-item"><span class="exercise-item-name">Push-ups</span><span class="exercise-item-reps">10 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Scapular pull-ups</span><span class="exercise-item-reps">8 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Regular dips</span><span class="exercise-item-reps">8 reps</span></div>
           <div class="exercise-item"><span class="exercise-item-name">Australian pull-ups</span><span class="exercise-item-reps">8 reps</span></div>
-          <div class="exercise-item"><span class="exercise-item-name">Squats</span><span class="exercise-item-reps">12 reps</span></div>
         </div>
         <div class="cycles-grid">
           <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">1</span><span class="cycle-pip-label">Cycle</span></div>
@@ -508,433 +272,247 @@
       </div>
     </div>
 
-    <!-- FRONT LEVER -->
-    <div class="block" id="b9-fl">
-      <div class="block-header" onclick="toggleBlock('b9-fl')">
-        <div class="block-num blue">2</div>
-        <div class="block-title-area">
-          <div class="block-name">Tuck / Advanced Tuck Front Lever <span class="new-badge" style="background:var(--blue);">NEW</span></div>
-          <div class="block-meta">Free system · pick one option</div>
-        </div>
-        <span class="block-time">10 min</span>
-        <span class="block-chevron">▾</span>
+    <!-- MUSCLE UPS -->
+    <div class="block" id="b11-mu">
+      <div class="block-header" onclick="toggleBlock('b11-mu')">
+        <div class="block-num red">2</div>
+        <div class="block-title-area"><div class="block-name">Muscle-Ups</div><div class="block-meta">Free system · 15–20 reps accumulated</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-
-        <div class="diagram-card">
-          <div class="diagram-title">Front Lever — Tuck vs Advanced Tuck</div>
-          <svg viewBox="0 0 340 160" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-            <!-- Bar -->
-            <line x1="20" y1="30" x2="320" y2="30" stroke="#e8c547" stroke-width="3"/>
-            <text x="170" y="20" font-family="DM Sans" font-size="10" font-weight="700" fill="#8a8278" text-anchor="middle">BAR — overhand grip</text>
-
-            <!-- Tuck position (left) -->
-            <g>
-              <line x1="90" y1="30" x2="90" y2="60" stroke="#5b9ce8" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="90" cy="72" r="10" fill="none" stroke="#5b9ce8" stroke-width="2"/>
-              <!-- tucked legs -->
-              <path d="M 90 82 Q 95 95 85 100" stroke="#5b9ce8" stroke-width="2" fill="none" stroke-linecap="round"/>
-              <path d="M 85 100 Q 80 108 88 108" stroke="#5b9ce8" stroke-width="2" fill="none" stroke-linecap="round"/>
-              <text x="90" y="130" font-family="DM Sans" font-size="10" fill="#5b9ce8" text-anchor="middle" font-weight="700">TUCK</text>
-              <text x="90" y="142" font-family="DM Sans" font-size="9" fill="#8a8278" text-anchor="middle">Legs tucked in</text>
-            </g>
-
-            <!-- Advanced tuck (right) -->
-            <g>
-              <line x1="250" y1="30" x2="250" y2="60" stroke="#e8894e" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="250" cy="72" r="10" fill="none" stroke="#e8894e" stroke-width="2"/>
-              <!-- 90° legs -->
-              <line x1="250" y1="82" x2="250" y2="95" stroke="#e8894e" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="250" y1="95" x2="285" y2="95" stroke="#e8894e" stroke-width="2.5" stroke-linecap="round"/>
-              <!-- angle arc -->
-              <path d="M 250 88 A 7 7 0 0 1 257 95" stroke="#e8c547" stroke-width="1.5" fill="none"/>
-              <text x="262" y="90" font-family="DM Sans" font-size="8" fill="#e8c547">90°</text>
-              <text x="250" y="120" font-family="DM Sans" font-size="10" fill="#e8894e" text-anchor="middle" font-weight="700">ADVANCED TUCK</text>
-              <text x="250" y="132" font-family="DM Sans" font-size="9" fill="#8a8278" text-anchor="middle">90° hip angle</text>
-            </g>
-          </svg>
-        </div>
-
-        <div class="option-grid" id="fl-opts">
-          <button class="option-btn" onclick="selectOpt('fl-opts', this); showFlOption(1)">
-            <div class="option-btn-label">Option 1 — Tuck<span class="option-btn-tag">EASIER</span></div>
-            <div class="option-btn-detail">4–6 sets × 30s holds. Target: sets of 30s each.</div>
-          </button>
-          <button class="option-btn selected" onclick="selectOpt('fl-opts', this); showFlOption(2)">
-            <div class="option-btn-label">Option 2 — Advanced Tuck<span class="option-btn-tag">TARGET</span></div>
-            <div class="option-btn-detail">2 min cumulated hold time. 90° angle between hips and torso.</div>
-          </button>
-        </div>
-
-        <!-- Option 1: Tuck sets -->
-        <div id="fl-opt1" style="display:none;">
-          <div class="set-tracker" style="margin-top:12px;">
-            <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
-            <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
-            <div class="set-pip" onclick="this.classList.toggle('done')">3</div>
-            <div class="set-pip" onclick="this.classList.toggle('done')">4</div>
-            <div class="set-pip" onclick="this.classList.toggle('done')">5</div>
-            <div class="set-pip" onclick="this.classList.toggle('done')">6</div>
-          </div>
-          <div class="callout tip" style="margin-top:10px;"><div class="callout-title">Progression</div>If 30s sets feel solid, try pushing to advanced tuck (Option 2).</div>
-        </div>
-
-        <!-- Option 2: Advanced Tuck cumulative -->
-        <div id="fl-opt2">
-          <div class="cumul-card">
-            <div class="cumul-label">Cumulated hold time</div>
-            <div class="cumul-time" id="fl-cumul-time">0:00</div>
-            <div class="cumul-target">Target: 2:00 cumulated</div>
-            <div class="cumul-bar"><div class="cumul-fill" id="fl-cumul-fill" style="width:0%"></div></div>
-            <div class="cumul-controls">
-              <button class="cumul-btn primary" id="fl-cumul-btn" onclick="toggleCumulTimer('fl')">Start hold</button>
-              <button class="cumul-btn danger" onclick="resetCumulTimer('fl')">Reset</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="callout coach" style="margin-top:10px;">
-          <div class="callout-title">Form cues</div>
-          <strong>Arms fully extended.</strong> Overhand grip — think about bending the bar for better arm and back activation. Perform scapular depression (even the intention counts). Don't let your back sag under the load. If it's too hard, use a band (15kg or 25kg) looped around your lower back. <strong>Film yourself!</strong>
-        </div>
-      </div>
-    </div>
-
-    <!-- CHAISE / WALL SIT PYRAMID -->
-    <div class="block" id="b9-ch">
-      <div class="block-header" onclick="toggleBlock('b9-ch')">
-        <div class="block-num green">3</div>
-        <div class="block-title-area">
-          <div class="block-name">Chaise (Wall Sit)</div>
-          <div class="block-meta">Inverted pyramid · 7 sets</div>
-        </div>
-        <span class="block-time">13 min</span>
-        <span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-
-        <div class="callout green">
-          <div class="callout-title">How to read it</div>
-          Each set shows <strong>hold time / rest time</strong>. The pyramid climbs from 50s down to 20s (sets 1→4), then mirrors back up (sets 5→7). Try to respect rest times — increase slightly if needed.
-        </div>
-
-        <div class="pyramid-wrap">
-          <div class="pyramid-row" id="ch-1">
-            <div class="pyramid-row-head">
-              <span class="pyramid-set-label">Set 1</span>
-              <span class="pyramid-set-tag">Montée</span>
-            </div>
-            <div class="pyramid-pips">
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--orange);">Hold</span><span class="pyramid-pip-time">50s</span></div>
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--green);">Rest</span><span class="pyramid-pip-time">1:40</span></div>
-            </div>
-            <button class="pyramid-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 1 done' : 'Mark Set 1 done'">Mark Set 1 done</button>
-          </div>
-
-          <div class="pyramid-row" id="ch-2">
-            <div class="pyramid-row-head">
-              <span class="pyramid-set-label">Set 2</span>
-              <span class="pyramid-set-tag">Montée</span>
-            </div>
-            <div class="pyramid-pips">
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--orange);">Hold</span><span class="pyramid-pip-time">40s</span></div>
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--green);">Rest</span><span class="pyramid-pip-time">1:20</span></div>
-            </div>
-            <button class="pyramid-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 2 done' : 'Mark Set 2 done'">Mark Set 2 done</button>
-          </div>
-
-          <div class="pyramid-row" id="ch-3">
-            <div class="pyramid-row-head">
-              <span class="pyramid-set-label">Set 3</span>
-              <span class="pyramid-set-tag">Montée</span>
-            </div>
-            <div class="pyramid-pips">
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--orange);">Hold</span><span class="pyramid-pip-time">30s</span></div>
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--green);">Rest</span><span class="pyramid-pip-time">1:00</span></div>
-            </div>
-            <button class="pyramid-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 3 done' : 'Mark Set 3 done'">Mark Set 3 done</button>
-          </div>
-
-          <div class="pyramid-row peak" id="ch-4">
-            <div class="pyramid-row-head">
-              <span class="pyramid-set-label">Set 4</span>
-              <span class="pyramid-set-tag">Peak — shortest hold</span>
-            </div>
-            <div class="pyramid-pips">
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--orange);">Hold</span><span class="pyramid-pip-time">20s</span></div>
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--green);">Rest</span><span class="pyramid-pip-time">0:40</span></div>
-            </div>
-            <button class="pyramid-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 4 done' : 'Mark Set 4 done'">Mark Set 4 done</button>
-          </div>
-
-          <div class="pyramid-row" id="ch-5">
-            <div class="pyramid-row-head">
-              <span class="pyramid-set-label">Set 5</span>
-              <span class="pyramid-set-tag">Descente</span>
-            </div>
-            <div class="pyramid-pips">
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--orange);">Hold</span><span class="pyramid-pip-time">30s</span></div>
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--green);">Rest</span><span class="pyramid-pip-time">1:00</span></div>
-            </div>
-            <button class="pyramid-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 5 done' : 'Mark Set 5 done'">Mark Set 5 done</button>
-          </div>
-
-          <div class="pyramid-row" id="ch-6">
-            <div class="pyramid-row-head">
-              <span class="pyramid-set-label">Set 6</span>
-              <span class="pyramid-set-tag">Descente</span>
-            </div>
-            <div class="pyramid-pips">
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--orange);">Hold</span><span class="pyramid-pip-time">40s</span></div>
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--green);">Rest</span><span class="pyramid-pip-time">1:20</span></div>
-            </div>
-            <button class="pyramid-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 6 done' : 'Mark Set 6 done'">Mark Set 6 done</button>
-          </div>
-
-          <div class="pyramid-row" id="ch-7">
-            <div class="pyramid-row-head">
-              <span class="pyramid-set-label">Set 7</span>
-              <span class="pyramid-set-tag">Descente — finish strong</span>
-            </div>
-            <div class="pyramid-pips">
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--orange);">Hold</span><span class="pyramid-pip-time">50s</span></div>
-              <div class="pyramid-pip"><span class="pyramid-pip-stage" style="color:var(--green);">Rest</span><span class="pyramid-pip-time">1:40</span></div>
-            </div>
-            <button class="pyramid-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 7 done' : 'Mark Set 7 done'">Mark Set 7 done</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DRAGON FLAG -->
-    <div class="block" id="b9-df">
-      <div class="block-header" onclick="toggleBlock('b9-df')">
-        <div class="block-num red">4</div>
-        <div class="block-title-area">
-          <div class="block-name">Pseudo Tuck Dragon Flag <span class="new-badge">NEW</span></div>
-          <div class="block-meta">Free system · 50 negative reps × 3s tempo</div>
-        </div>
-        <span class="block-time">10 min</span>
-        <span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-
-        <div class="diagram-card">
-          <div class="diagram-title">Dragon Flag Negative — start vertical, lower in 3 seconds</div>
-          <svg viewBox="0 0 340 140" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-            <!-- Bench/floor line -->
-            <rect x="20" y="100" width="300" height="8" rx="4" fill="#2e2b26"/>
-            <text x="170" y="128" font-family="DM Sans" font-size="9" fill="#8a8278" text-anchor="middle">Bench or floor — use a pole or espalier to hold</text>
-
-            <!-- Start position (vertical) -->
-            <g>
-              <circle cx="70" cy="85" r="6" fill="none" stroke="#4caf7d" stroke-width="2"/>
-              <line x1="70" y1="79" x2="70" y2="40" stroke="#4caf7d" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="70" y1="40" x2="60" y2="25" stroke="#4caf7d" stroke-width="2" stroke-linecap="round"/>
-              <line x1="70" y1="40" x2="80" y2="25" stroke="#4caf7d" stroke-width="2" stroke-linecap="round"/>
-              <text x="70" y="15" font-family="DM Sans" font-size="9" fill="#4caf7d" text-anchor="middle" font-weight="700">START</text>
-            </g>
-
-            <!-- Mid -->
-            <g>
-              <circle cx="170" cy="85" r="6" fill="none" stroke="#e8894e" stroke-width="2"/>
-              <line x1="170" y1="79" x2="195" y2="55" stroke="#e8894e" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="195" y1="55" x2="185" y2="42" stroke="#e8894e" stroke-width="2" stroke-linecap="round"/>
-              <line x1="195" y1="55" x2="208" y2="48" stroke="#e8894e" stroke-width="2" stroke-linecap="round"/>
-            </g>
-
-            <!-- Arrow -->
-            <path d="M 95 50 Q 130 30 160 50" stroke="#e8c547" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrowY)"/>
-            <text x="130" y="30" font-family="DM Sans" font-size="9" fill="#e8c547" text-anchor="middle" font-weight="700">3 sec</text>
-
-            <!-- End position (horizontal) -->
-            <g>
-              <circle cx="270" cy="85" r="6" fill="none" stroke="#e05b4b" stroke-width="2"/>
-              <line x1="270" y1="79" x2="310" y2="79" stroke="#e05b4b" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="310" y1="79" x2="320" y2="72" stroke="#e05b4b" stroke-width="2" stroke-linecap="round"/>
-              <line x1="310" y1="79" x2="320" y2="86" stroke="#e05b4b" stroke-width="2" stroke-linecap="round"/>
-              <text x="285" y="72" font-family="DM Sans" font-size="9" fill="#e05b4b" text-anchor="middle" font-weight="700">END</text>
-            </g>
-
-            <!-- Arrow 2 -->
-            <path d="M 205 55 Q 235 40 260 60" stroke="#e8c547" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrowY)"/>
-
-            <defs>
-              <marker id="arrowY" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-                <path d="M 0 0 L 8 4 L 0 8 z" fill="#e8c547"/>
-              </marker>
-            </defs>
-          </svg>
-        </div>
-
-        <div class="option-grid" id="df-opts">
-          <button class="option-btn selected" onclick="selectOpt('df-opts', this)">
-            <div class="option-btn-label">Option 1 — Advanced Tuck<span class="option-btn-tag">DEFAULT</span></div>
-            <div class="option-btn-detail">90° hip angle. 50 negative reps, 3s descent each. Rest by feel.</div>
-          </button>
-          <button class="option-btn" onclick="selectOpt('df-opts', this)">
-            <div class="option-btn-label">Option 2 — Full or One Leg<span class="option-btn-tag">HARDER</span></div>
-            <div class="option-btn-detail">Try full reps first, switch to one leg if needed. Same 50 reps × 3s target.</div>
-          </button>
+        <div class="callout coach">
+          <div class="callout-title">Progression path</div>
+          Try bodyweight first. If you can't reach 15–20, use the 15kg band. If still too hard, move to 25kg. <strong>NEVER pass one arm then the other</strong> over the bar — always lock your grip (thumb UNDER the bar). Focus on the swing timing: generate a pendulum, trigger the MU on the return swing at point B.
         </div>
 
         <div class="counter-card">
-          <div class="counter-target">Negative reps (3s each)</div>
-          <div class="counter-value" id="df-count">0</div>
-          <div class="counter-bar"><div class="counter-fill" id="df-fill" style="width:0%"></div></div>
+          <div class="counter-target">Muscle-up reps (accumulated)</div>
+          <div class="counter-value" id="mu11-count">0</div>
+          <div class="counter-bar"><div class="counter-fill" id="mu11-fill" style="width:0%"></div></div>
           <div class="counter-controls">
-            <button class="counter-btn minus" onclick="adjustDfCounter(-1)">−1</button>
-            <button class="counter-btn add" onclick="adjustDfCounter(1)">+1</button>
-            <button class="counter-btn add" onclick="adjustDfCounter(5)">+5</button>
+            <button class="counter-btn minus" onclick="adjCounter('mu11',20,-1)">−1</button>
+            <button class="counter-btn add" onclick="adjCounter('mu11',20,1)">+1</button>
+            <button class="counter-btn add" onclick="adjCounter('mu11',20,3)">+3</button>
           </div>
-          <div class="counter-zone" id="df-zone">Target: 50 reps · 0 so far</div>
+          <div class="counter-zone" id="mu11-zone">Target: 15–20 reps · 0 so far</div>
         </div>
 
-        <div class="callout warn" style="margin-top:10px;">
-          <div class="callout-title">Technical exercise</div>
-          Use a bench or espalier. Upper back stays on the surface — only your lower body lifts. Maintain alignment: hips, belly button, and shoulders in line at all times. <strong>Film yourself!</strong> Ask Quentin for YouTube tutorials if needed.
+        <div class="callout tip" style="margin-top:10px;">
+          <div class="callout-title">Timing cues</div>
+          <strong>Grip:</strong> slightly wider than shoulder-width, thumb under bar. <strong>Swing:</strong> body forms a line, slight hollow in pulling phase. <strong>Arms extended at point B.</strong> During the pull, orient elbows forward, follow the bar with your eyes, tuck head into shoulders approaching the transition.
         </div>
       </div>
     </div>
 
-    <!-- CHEST KILLER PYRAMID -->
-    <div class="block" id="b9-ck">
-      <div class="block-header" onclick="toggleBlock('b9-ck')">
-        <div class="block-num purple">5</div>
-        <div class="block-title-area">
-          <div class="block-name">Push-ups & Iso — Chest Killer</div>
-          <div class="block-meta">Inverted pyramid · 5 sets · reps + iso hold + rest</div>
-        </div>
-        <span class="block-time">12 min</span>
-        <span class="block-chevron">▾</span>
+    <!-- CHAISE & SQUATS DOUBLE PYRAMID -->
+    <div class="block" id="b11-cs">
+      <div class="block-header" onclick="toggleBlock('b11-cs')">
+        <div class="block-num green">3</div>
+        <div class="block-title-area"><div class="block-name">Chaise & Squats — Double Pyramid</div><div class="block-meta">12 sets · hold + reps per set · constant effort</div></div>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-
-        <div class="callout coach">
-          <div class="callout-title">How to read the numbers</div>
-          Each set has three values: <strong>reps / iso hold time / rest time</strong>. For the iso hold, try straight arms first. If too easy, hold at the bottom of the push-up (arms bent, not touching the floor). The pyramid can be done on the floor or a low bar.
+        <div class="callout green">
+          <div class="callout-title">How it works</div>
+          Each set = wall sit hold + squats. As hold time increases, squat reps decrease — constant total effort. Finish as fast as possible without breaking a set. Rest by feel.
         </div>
 
-        <div class="pyramid-wrap">
-          <div class="ck-row" id="ck-1">
-            <div class="ck-row-head">
-              <span class="ck-set-label">Set 1</span>
-              <span class="pyramid-set-tag">Montée</span>
-            </div>
-            <div class="ck-pips">
-              <div class="ck-pip"><span class="ck-pip-stage reps">Reps</span><span class="ck-pip-time">12</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage iso">Iso</span><span class="ck-pip-time">24s</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage rest">Rest</span><span class="ck-pip-time">48s</span></div>
-            </div>
-            <button class="ck-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 1 done' : 'Mark Set 1 done'">Mark Set 1 done</button>
-          </div>
+        <div class="dp-wrap">
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S1</span><span class="dp-hold">10s hold</span><span class="dp-reps">30 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S2</span><span class="dp-hold">20s hold</span><span class="dp-reps">25 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S3</span><span class="dp-hold">30s hold</span><span class="dp-reps">20 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S4</span><span class="dp-hold">40s hold</span><span class="dp-reps">15 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S5</span><span class="dp-hold">50s hold</span><span class="dp-reps">10 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row peak" onclick="this.classList.toggle('done')"><span class="dp-set">S6</span><span class="dp-hold">60s hold</span><span class="dp-reps">5 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row peak" onclick="this.classList.toggle('done')"><span class="dp-set">S7</span><span class="dp-hold">60s hold</span><span class="dp-reps">5 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S8</span><span class="dp-hold">50s hold</span><span class="dp-reps">10 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S9</span><span class="dp-hold">40s hold</span><span class="dp-reps">15 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S10</span><span class="dp-hold">30s hold</span><span class="dp-reps">20 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S11</span><span class="dp-hold">20s hold</span><span class="dp-reps">25 squats</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S12</span><span class="dp-hold">10s hold</span><span class="dp-reps">30 squats</span><span class="dp-check">○</span></div>
+        </div>
+      </div>
+    </div>
 
-          <div class="ck-row" id="ck-2">
-            <div class="ck-row-head">
-              <span class="ck-set-label">Set 2</span>
-              <span class="pyramid-set-tag">Montée</span>
-            </div>
-            <div class="ck-pips">
-              <div class="ck-pip"><span class="ck-pip-stage reps">Reps</span><span class="ck-pip-time">10</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage iso">Iso</span><span class="ck-pip-time">20s</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage rest">Rest</span><span class="ck-pip-time">40s</span></div>
-            </div>
-            <button class="ck-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 2 done' : 'Mark Set 2 done'">Mark Set 2 done</button>
-          </div>
+    <!-- X-GRIP & CHIN UPS -->
+    <div class="block" id="b11-xg">
+      <div class="block-header" onclick="toggleBlock('b11-xg')">
+        <div class="block-num purple">4</div>
+        <div class="block-title-area"><div class="block-name">X-Grip Pull-ups & Chin-ups <span class="new-badge">NEW</span></div><div class="block-meta">EMOM 10 min · 2 blocks</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout coach">
+          <div class="callout-title">Commando pull-ups</div>
+          Also called X-grip. Pull toward the arm furthest from you on the bar. Fight the natural body rotation. Uses more chest than regular pull-ups — load is ~70/30 instead of 50/50. Builds toward one-arm pull-ups. Use a 15kg band if needed. For chin-ups, use shoulder-width supinated grip.
+        </div>
 
-          <div class="ck-row peak" id="ck-3">
-            <div class="ck-row-head">
-              <span class="ck-set-label">Set 3</span>
-              <span class="pyramid-set-tag">Peak — lowest volume</span>
-            </div>
-            <div class="ck-pips">
-              <div class="ck-pip"><span class="ck-pip-stage reps">Reps</span><span class="ck-pip-time">8</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage iso">Iso</span><span class="ck-pip-time">16s</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage rest">Rest</span><span class="ck-pip-time">32s</span></div>
-            </div>
-            <button class="ck-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 3 done' : 'Mark Set 3 done'">Mark Set 3 done</button>
+        <div style="font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px;">Bloc 1 — X-Grip · 5 min · 3 reps per side per min</div>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-xg-phase">Idle</div><div class="emom-min" id="emom-xg-min">— of 5</div></div>
+            <div class="emom-time" id="emom-xg-time">60</div>
           </div>
-
-          <div class="ck-row" id="ck-4">
-            <div class="ck-row-head">
-              <span class="ck-set-label">Set 4</span>
-              <span class="pyramid-set-tag">Descente</span>
-            </div>
-            <div class="ck-pips">
-              <div class="ck-pip"><span class="ck-pip-stage reps">Reps</span><span class="ck-pip-time">10</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage iso">Iso</span><span class="ck-pip-time">20s</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage rest">Rest</span><span class="ck-pip-time">40s</span></div>
-            </div>
-            <button class="ck-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 4 done' : 'Mark Set 4 done'">Mark Set 4 done</button>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('xg',5)">Start 5 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('xg')">Stop</button>
           </div>
+        </div>
 
-          <div class="ck-row" id="ck-5">
-            <div class="ck-row-head">
-              <span class="ck-set-label">Set 5</span>
-              <span class="pyramid-set-tag">Descente — finish strong</span>
-            </div>
-            <div class="ck-pips">
-              <div class="ck-pip"><span class="ck-pip-stage reps">Reps</span><span class="ck-pip-time">12</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage iso">Iso</span><span class="ck-pip-time">24s</span></div>
-              <div class="ck-pip"><span class="ck-pip-stage rest">Rest</span><span class="ck-pip-time">48s</span></div>
-            </div>
-            <button class="ck-track-btn" onclick="this.classList.toggle('done'); this.textContent = this.classList.contains('done') ? '✓ Set 5 done' : 'Mark Set 5 done'">Mark Set 5 done</button>
+        <div style="font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px;">Bloc 2 — Chin-ups · 5 min · 6 reps per min</div>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-cu-phase">Idle</div><div class="emom-min" id="emom-cu-min">— of 5</div></div>
+            <div class="emom-time" id="emom-cu-time">60</div>
+          </div>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('cu',5)">Start 5 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('cu')">Stop</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- V-UPS -->
-    <div class="block" id="b9-vu">
-      <div class="block-header" onclick="toggleBlock('b9-vu')">
-        <div class="block-num">6</div>
-        <div class="block-title-area">
-          <div class="block-name">V-Ups</div>
-          <div class="block-meta">5 sets × 12 reps · core & protraction</div>
-        </div>
-        <span class="block-time">8 min</span>
-        <span class="block-chevron">▾</span>
+    <!-- ELEVATED PUSH-UPS -->
+    <div class="block" id="b11-ep">
+      <div class="block-header" onclick="toggleBlock('b11-ep')">
+        <div class="block-num blue">5</div>
+        <div class="block-title-area"><div class="block-name">Elevated Push-ups EMOM</div><div class="block-meta">10 min · feet on box (20–30cm)</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-
         <div class="callout coach">
-          <div class="callout-title">Why V-Ups?</div>
-          Core strength and protraction work — essential building blocks for the planche. 1 min rest between sets (1:30 if needed).
+          <div class="callout-title">Why elevated?</div>
+          Feet elevated on a box or bench puts more pressure on the chest and front deltoids. Pick your option — or do 5 min at 12 reps then 5 min at 10 reps.
         </div>
 
-        <div class="diagram-card">
-          <div class="diagram-title">V-Up — simultaneous lift</div>
-          <svg viewBox="0 0 300 100" class="diagram-svg" xmlns="http://www.w3.org/2000/svg">
-            <!-- Floor -->
-            <line x1="10" y1="80" x2="290" y2="80" stroke="#2e2b26" stroke-width="2"/>
-
-            <!-- Start (flat) -->
-            <g>
-              <line x1="30" y1="75" x2="120" y2="75" stroke="#8a8278" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="105" cy="75" r="5" fill="none" stroke="#8a8278" stroke-width="1.5"/>
-              <text x="75" y="95" font-family="DM Sans" font-size="9" fill="#8a8278" text-anchor="middle">Start flat</text>
-            </g>
-
-            <!-- V position -->
-            <g>
-              <circle cx="220" cy="65" r="5" fill="none" stroke="#e8894e" stroke-width="1.5"/>
-              <line x1="220" y1="70" x2="220" y2="77" stroke="#e8894e" stroke-width="2" stroke-linecap="round"/>
-              <line x1="220" y1="77" x2="250" y2="45" stroke="#e8894e" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="215" y1="62" x2="250" y2="38" stroke="#e8894e" stroke-width="2.5" stroke-linecap="round"/>
-              <text x="235" y="30" font-family="DM Sans" font-size="9" fill="#e8894e" text-anchor="middle" font-weight="700">V</text>
-              <text x="235" y="95" font-family="DM Sans" font-size="9" fill="#e8894e" text-anchor="middle">Touch toes</text>
-            </g>
-
-            <!-- Arrow -->
-            <path d="M 130 68 Q 165 40 200 58" stroke="#e8c547" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrowY2)"/>
-            <defs>
-              <marker id="arrowY2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-                <path d="M 0 0 L 8 4 L 0 8 z" fill="#e8c547"/>
-              </marker>
-            </defs>
-          </svg>
+        <div class="option-grid" id="ep-opts">
+          <button class="option-btn selected" onclick="selectOpt('ep-opts', this)">
+            <div class="option-btn-label">Option 1<span class="option-btn-tag">10 reps/min</span></div>
+          </button>
+          <button class="option-btn" onclick="selectOpt('ep-opts', this)">
+            <div class="option-btn-label">Option 2<span class="option-btn-tag">12 reps/min</span></div>
+          </button>
         </div>
 
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-ep-phase">Idle</div><div class="emom-min" id="emom-ep-min">— of 10</div></div>
+            <div class="emom-time" id="emom-ep-time">60</div>
+          </div>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('ep',10)">Start 10 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('ep')">Stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOW BAR PLANK -->
+    <div class="block" id="b11-pk">
+      <div class="block-header" onclick="toggleBlock('b11-pk')">
+        <div class="block-num muted">6</div>
+        <div class="block-title-area"><div class="block-name">Low-Bar Plank (optional)</div><div class="block-meta">3 sets × 2 min hold · vary grip every 20s</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout">
+          Straight-arm plank on the low bar. During the 2 min, switch every ~20s between: <strong>pronation/supination</strong>, <strong>one hand/two hands</strong>, <strong>raise one foot</strong>. Add variations to increase or decrease difficulty as needed.
+        </div>
+        <div class="set-tracker">
+          <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRETCH -->
+    <div class="block" id="b11-st">
+      <div class="block-header" onclick="toggleBlock('b11-st')">
+        <div class="block-num muted">🧘</div>
+        <div class="block-title-area"><div class="block-name">Stretching</div><div class="block-meta">Full body</div></div>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="stretch-grid">
+          <div class="stretch-item">Deltoids</div><div class="stretch-item">Rotator cuff</div>
+          <div class="stretch-item">Pectorals</div><div class="stretch-item">Triceps</div>
+          <div class="stretch-item">Biceps</div><div class="stretch-item">Brachialis</div>
+          <div class="stretch-item">Brachioradialis</div><div class="stretch-item">Lats</div>
+          <div class="stretch-item">Lower back</div><div class="stretch-item">Glutes</div>
+          <div class="stretch-item">Quads</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ======================== SESSION 12 ======================== -->
+  <!-- ============================================================ -->
+  <section class="session" id="s12">
+
+    <div class="overview-card">
+      <div class="overview-title">Session 12 — Pseudo Muscle-Ups & Ashura Endurance Routine</div>
+      <div class="overview-sub">~1h40 total. Structured muscle-up sets (2–3 reps × 5 sets) + pseudo MU volume (30 reps), V-ups EMOM, one-leg glute bridges, the legendary Ashura pull-up/dead-hang endurance routine, and an optional progressive EMOM finisher.</div>
+      <div class="pills">
+        <span class="pill orange">~1h40 total</span>
+        <span class="pill yellow">Structured MU sets</span>
+        <span class="pill new">★ Ashura routine</span>
+        <span class="pill green">Glute bridges</span>
+        <span class="pill purple">Progressive finisher</span>
+      </div>
+      <div class="coach-note">
+        <div class="coach-note-header">🎙 Coach's message</div>
+        <div class="coach-note-body">"Compared with Session 11 where you had 15–20 free reps, this time I want more structure — sets of 2–3 reps so you can improve technique on the chain. The Ashura routine is really interesting — you can recycle it in 2 years, 10 years, because the volume auto-adjusts to your level. Good luck."</div>
+      </div>
+    </div>
+
+    <!-- WARM UP -->
+    <div class="block" id="b12-wu">
+      <div class="block-header" onclick="toggleBlock('b12-wu')">
+        <div class="block-num muted">🔥</div>
+        <div class="block-title-area"><div class="block-name">Warm-up</div><div class="block-meta">Refer to warm-up sheet</div></div>
+        <span class="block-time">15 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body"><div class="callout">Standard warm-up.</div></div>
+    </div>
+
+    <!-- MISE EN ROUTE -->
+    <div class="block" id="b12-mr">
+      <div class="block-header" onclick="toggleBlock('b12-mr')">
+        <div class="block-num">1</div>
+        <div class="block-title-area"><div class="block-name">Mise en route</div><div class="block-meta">3 cycles · 30s rest between cycles</div></div>
+        <span class="block-time">5 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="exercise-list">
+          <div class="exercise-item"><span class="exercise-item-name">Scapular pull-ups</span><span class="exercise-item-reps">12 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Squats</span><span class="exercise-item-reps">12 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Push-ups</span><span class="exercise-item-reps">10 reps</span></div>
+        </div>
+        <div class="cycles-grid">
+          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">1</span><span class="cycle-pip-label">Cycle</span></div>
+          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">2</span><span class="cycle-pip-label">Cycle</span></div>
+          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">3</span><span class="cycle-pip-label">Cycle</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MUSCLE UPS -->
+    <div class="block" id="b12-mu">
+      <div class="block-header" onclick="toggleBlock('b12-mu')">
+        <div class="block-num red">2</div>
+        <div class="block-title-area"><div class="block-name">Muscle-Ups — Structured</div><div class="block-meta">Bloc 1: 5×2–3 MU · Bloc 2: 30 Pseudo MU</div></div>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout coach">
+          <div class="callout-title">Bloc 1 — Real muscle-ups</div>
+          5 sets of 2–3 reps. Focus on chaining reps — the second rep after the first is the tricky part. Use a band if needed. <strong>Film some sets for analysis.</strong>
+        </div>
+
+        <div style="font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px;">Bloc 1 — 5 sets × 2–3 reps</div>
         <div class="set-tracker">
           <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
           <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
@@ -942,684 +520,258 @@
           <div class="set-pip" onclick="this.classList.toggle('done')">4</div>
           <div class="set-pip" onclick="this.classList.toggle('done')">5</div>
         </div>
+
+        <div style="font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px;">Bloc 2 — 30 Pseudo Muscle-Ups</div>
+        <div class="callout" style="margin-top:0;">Use a box/bench to jump above the bar — removes the pull, drills the transition. Sets of any size as long as you reach 30 total.</div>
+
+        <div class="counter-card">
+          <div class="counter-target">Pseudo MU reps</div>
+          <div class="counter-value" id="pmu12-count">0</div>
+          <div class="counter-bar"><div class="counter-fill" id="pmu12-fill" style="width:0%"></div></div>
+          <div class="counter-controls">
+            <button class="counter-btn minus" onclick="adjCounter('pmu12',30,-1)">−1</button>
+            <button class="counter-btn add" onclick="adjCounter('pmu12',30,1)">+1</button>
+            <button class="counter-btn add" onclick="adjCounter('pmu12',30,5)">+5</button>
+          </div>
+          <div class="counter-zone" id="pmu12-zone">Target: 30 reps · 0 so far</div>
+        </div>
       </div>
     </div>
 
-    <!-- STRETCH -->
-    <div class="block" id="b9-st">
-      <div class="block-header" onclick="toggleBlock('b9-st')">
-        <div class="block-num muted">🧘</div>
-        <div class="block-title-area">
-          <div class="block-name">Stretching</div>
-          <div class="block-meta">Full body · extended list</div>
-        </div>
-        <span class="block-time">15 min</span>
-        <span class="block-chevron">▾</span>
+    <!-- V-UPS -->
+    <div class="block" id="b12-vu">
+      <div class="block-header" onclick="toggleBlock('b12-vu')">
+        <div class="block-num">3</div>
+        <div class="block-title-area"><div class="block-name">V-Ups EMOM</div><div class="block-meta">8 min · 8–10 reps per min</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-        <div class="stretch-grid">
-          <div class="stretch-item">Deltoids</div>
-          <div class="stretch-item">Rotator cuff</div>
-          <div class="stretch-item">Triceps</div>
-          <div class="stretch-item">Biceps</div>
-          <div class="stretch-item">Brachialis</div>
-          <div class="stretch-item">Brachioradialis</div>
-          <div class="stretch-item">Lats</div>
-          <div class="stretch-item">Lower back</div>
-          <div class="stretch-item">Quads</div>
-          <div class="stretch-item">Abs</div>
-          <div class="stretch-item">Psoas</div>
-          <div class="stretch-item">Obliques</div>
-          <div class="stretch-item">Pectorals</div>
-          <div class="stretch-item">Cervical muscles</div>
-          <div class="stretch-item">Rhomboids</div>
-          <div class="stretch-item">Serratus</div>
+        <div class="callout">If the EMOM gets too hard, break it and finish the total volume (64–80 reps) in free sets.</div>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-vu-phase">Idle</div><div class="emom-min" id="emom-vu-min">— of 8</div></div>
+            <div class="emom-time" id="emom-vu-time">60</div>
+          </div>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('vu',8)">Start 8 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('vu')">Stop</button>
+          </div>
         </div>
       </div>
     </div>
 
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- ======================== SESSION 10 ======================== -->
-  <!-- ============================================================ -->
-  <section class="session" id="s10">
-
-    <div class="overview-card">
-      <div class="overview-title">Session 10 — Superset Pyramids with Decreasing Peaks</div>
-      <div class="overview-sub">Unlimited time. One massive routine: 15 sets across 5 blocks of superset pyramids combining pseudo muscle-ups, bar dips, and pull-ups. Each block's peak is lower than the last — effort climbs within a block but resets (smaller) at each new block. This is a session to keep in your pocket and recycle with real muscle-ups as you progress.</div>
-      <div class="pills">
-        <span class="pill orange">Unlimited time</span>
-        <span class="pill new">★ 15-set pyramid</span>
-        <span class="pill yellow">5 blocks</span>
-        <span class="pill blue">PMU + BD + PU supersets</span>
-      </div>
-
-      <div class="coach-note">
-        <div class="coach-note-header">🎙 Coach's message</div>
-        <div class="coach-note-body">
-          "I'm perfectly aware that the level needed to finish this pyramid doing pure muscle-ups is really high — that's why it uses pseudo muscle-ups. But keep this session in your pocket. You can recycle it later with as many real muscle-ups as possible. Try real MUs on sets 1, 2, 6, 7, 10, 13, and 15 — the shorter ones. Take as much rest as you need, especially before sets 4 and 5. Good luck."
-        </div>
-      </div>
-    </div>
-
-    <!-- LEGEND -->
-    <div class="s10-legend">
-      <div class="s10-legend-title">Abbreviations</div>
-      <div class="s10-legend-items">
-        <div class="s10-legend-item"><span class="s10-legend-badge" style="background:var(--purple-dim);color:var(--purple);">PMU</span> Pseudo Muscle-Up</div>
-        <div class="s10-legend-item"><span class="s10-legend-badge" style="background:var(--red-dim);color:var(--red);">BD</span> Bar Dip</div>
-        <div class="s10-legend-item"><span class="s10-legend-badge" style="background:var(--blue-dim);color:var(--blue);">PU</span> Pull-Up</div>
-      </div>
-    </div>
-
-    <!-- WARM UP -->
-    <div class="block" id="b10-wu">
-      <div class="block-header" onclick="toggleBlock('b10-wu')">
-        <div class="block-num muted">🔥</div>
-        <div class="block-title-area">
-          <div class="block-name">Warm-up</div>
-          <div class="block-meta">Refer to warm-up sheet · do once</div>
-        </div>
-        <span class="block-time">15 min</span>
-        <span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="callout">Standard warm-up. Refer to the échauffement sheet.</div>
-      </div>
-    </div>
-
-    <!-- MISE EN ROUTE -->
-    <div class="block" id="b10-mr">
-      <div class="block-header" onclick="toggleBlock('b10-mr')">
-        <div class="block-num">1</div>
-        <div class="block-title-area">
-          <div class="block-name">Mise en route</div>
-          <div class="block-meta">3 cycles · 45s rest between cycles</div>
-        </div>
-        <span class="block-time">5 min</span>
-        <span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="exercise-list">
-          <div class="exercise-item"><span class="exercise-item-name">Burpees</span><span class="exercise-item-reps">6 reps</span></div>
-          <div class="exercise-item"><span class="exercise-item-name">Squats</span><span class="exercise-item-reps">15 reps</span></div>
-          <div class="exercise-item"><span class="exercise-item-name">Scapular pull-ups</span><span class="exercise-item-reps">8 reps</span></div>
-        </div>
-        <div class="cycles-grid">
-          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">1</span><span class="cycle-pip-label">Cycle</span></div>
-          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">2</span><span class="cycle-pip-label">Cycle</span></div>
-          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">3</span><span class="cycle-pip-label">Cycle</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EFFORT CHART -->
-    <div class="block" id="b10-chart">
-      <div class="block-header" onclick="toggleBlock('b10-chart')">
-        <div class="block-num muted">📊</div>
-        <div class="block-title-area">
-          <div class="block-name">Effort Map</div>
-          <div class="block-meta">Effort per set · decreasing peaks across blocks</div>
-        </div>
-        <span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="callout" style="margin-top:0;margin-bottom:12px;">Scoring: PMU = 2 pts, BD = 1 pt, PU = 1 pt. Within each block effort climbs, but each new block starts lower than the previous peak.</div>
-        <div class="effort-chart">
-          <div class="effort-bar-wrap" style="--h:11.8%"><div class="effort-bar b1"></div><span class="effort-val">4</span><span class="effort-label">S1</span></div>
-          <div class="effort-bar-wrap" style="--h:29.4%"><div class="effort-bar b1"></div><span class="effort-val">10</span><span class="effort-label">S2</span></div>
-          <div class="effort-bar-wrap" style="--h:50.0%"><div class="effort-bar b1"></div><span class="effort-val">17</span><span class="effort-label">S3</span></div>
-          <div class="effort-bar-wrap" style="--h:73.5%"><div class="effort-bar b1"></div><span class="effort-val">25</span><span class="effort-label">S4</span></div>
-          <div class="effort-bar-wrap" style="--h:100%"><div class="effort-bar b1 peak"></div><span class="effort-val">34</span><span class="effort-label">S5</span></div>
-          <div class="effort-bar-wrap" style="--h:14.7%"><div class="effort-bar b2"></div><span class="effort-val">5</span><span class="effort-label">S6</span></div>
-          <div class="effort-bar-wrap" style="--h:32.4%"><div class="effort-bar b2"></div><span class="effort-val">11</span><span class="effort-label">S7</span></div>
-          <div class="effort-bar-wrap" style="--h:52.9%"><div class="effort-bar b2"></div><span class="effort-val">18</span><span class="effort-label">S8</span></div>
-          <div class="effort-bar-wrap" style="--h:76.5%"><div class="effort-bar b2 peak"></div><span class="effort-val">26</span><span class="effort-label">S9</span></div>
-          <div class="effort-bar-wrap" style="--h:17.6%"><div class="effort-bar b3"></div><span class="effort-val">6</span><span class="effort-label">S10</span></div>
-          <div class="effort-bar-wrap" style="--h:35.3%"><div class="effort-bar b3"></div><span class="effort-val">12</span><span class="effort-label">S11</span></div>
-          <div class="effort-bar-wrap" style="--h:55.9%"><div class="effort-bar b3 peak"></div><span class="effort-val">19</span><span class="effort-label">S12</span></div>
-          <div class="effort-bar-wrap" style="--h:20.6%"><div class="effort-bar b4"></div><span class="effort-val">7</span><span class="effort-label">S13</span></div>
-          <div class="effort-bar-wrap" style="--h:38.2%"><div class="effort-bar b4 peak"></div><span class="effort-val">13</span><span class="effort-label">S14</span></div>
-          <div class="effort-bar-wrap" style="--h:23.5%"><div class="effort-bar b5 peak"></div><span class="effort-val">8</span><span class="effort-label">S15</span></div>
-        </div>
-        <div class="effort-legend">
-          <span class="effort-leg-item"><span class="effort-leg-dot b1"></span>Bloc 1</span>
-          <span class="effort-leg-item"><span class="effort-leg-dot b2"></span>Bloc 2</span>
-          <span class="effort-leg-item"><span class="effort-leg-dot b3"></span>Bloc 3</span>
-          <span class="effort-leg-item"><span class="effort-leg-dot b4"></span>Bloc 4</span>
-          <span class="effort-leg-item"><span class="effort-leg-dot b5"></span>Bloc 5</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- BLOC 1 -->
-    <div class="block" id="b10-b1">
-      <div class="block-header" onclick="toggleBlock('b10-b1')">
-        <div class="block-num red">2</div>
-        <div class="block-title-area">
-          <div class="block-name">Bloc 1 — Sets 1–5</div>
-          <div class="block-meta">Largest pyramid · 5 sets · peak at Set 5</div>
-        </div>
-        <span class="block-time">Unlimited</span>
-        <span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-
-        <div class="callout coach">
-          <div class="callout-title">Real MU challenge</div>
-          Try sets 1 and 2 with real muscle-ups if you can. Use a band or pseudo MU for the rest.
-        </div>
-
-        <!-- Set 1 -->
-        <div class="ss-set-card" id="ss-1">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 1</span>
-            <span class="ss-set-effort">4 pts</span>
-            <span class="ss-mu-badge">Try real MU</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">1 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <!-- Set 2 -->
-        <div class="ss-set-card" id="ss-2">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 2</span>
-            <span class="ss-set-effort">10 pts</span>
-            <span class="ss-mu-badge">Try real MU</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">3 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <!-- Set 3 -->
-        <div class="ss-set-card" id="ss-3">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 3</span>
-            <span class="ss-set-effort">17 pts</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">3 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">5 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <!-- Set 4 -->
-        <div class="ss-set-card" id="ss-4">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 4</span>
-            <span class="ss-set-effort">25 pts</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">3 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">4 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">7 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <!-- Set 5 -->
-        <div class="ss-set-card ss-peak" id="ss-5">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 5</span>
-            <span class="ss-set-effort">34 pts — PEAK</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">3 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">4 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">5 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">9 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <div class="callout warn" style="margin-top:10px;"><div class="callout-title">Rest</div>Take at least 2 min between sets. More before Sets 4 and 5 — these are the hardest of the entire session.</div>
-      </div>
-    </div>
-
-    <!-- BLOC 2 -->
-    <div class="block" id="b10-b2">
-      <div class="block-header" onclick="toggleBlock('b10-b2')">
-        <div class="block-num orange">3</div>
-        <div class="block-title-area">
-          <div class="block-name">Bloc 2 — Sets 6–9</div>
-          <div class="block-meta">4 sets · peak lower than Bloc 1</div>
-        </div>
-        <span class="block-time">Unlimited</span>
-        <span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-
-        <div class="callout coach">
-          <div class="callout-title">Real MU challenge</div>
-          Try sets 6 and 7 with real muscle-ups.
-        </div>
-
-        <div class="ss-set-card" id="ss-6">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 6</span>
-            <span class="ss-set-effort">5 pts</span>
-            <span class="ss-mu-badge">Try real MU</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">2 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <div class="ss-set-card" id="ss-7">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 7</span>
-            <span class="ss-set-effort">11 pts</span>
-            <span class="ss-mu-badge">Try real MU</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">4 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <div class="ss-set-card" id="ss-8">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 8</span>
-            <span class="ss-set-effort">18 pts</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">3 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">6 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <div class="ss-set-card ss-peak" id="ss-9">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 9</span>
-            <span class="ss-set-effort">26 pts — PEAK</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">3 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">4 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">8 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- BLOC 3 -->
-    <div class="block" id="b10-b3">
-      <div class="block-header" onclick="toggleBlock('b10-b3')">
+    <!-- ONE LEG GLUTE BRIDGE -->
+    <div class="block" id="b12-gb">
+      <div class="block-header" onclick="toggleBlock('b12-gb')">
         <div class="block-num green">4</div>
-        <div class="block-title-area">
-          <div class="block-name">Bloc 3 — Sets 10–12</div>
-          <div class="block-meta">3 sets · getting shorter</div>
-        </div>
-        <span class="block-time">Unlimited</span>
-        <span class="block-chevron">▾</span>
+        <div class="block-title-area"><div class="block-name">One-Leg Glute Bridge</div><div class="block-meta">EMOM 10 min · 20s hold per leg per min</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-
-        <div class="callout coach">
-          <div class="callout-title">Real MU challenge</div>
-          Try set 10 with a real muscle-up.
+        <div class="callout green">
+          <div class="callout-title">Foot placement matters</div>
+          Feet closer to glutes = more glute work. Feet farther away = more hamstring work. If the EMOM is too hard, break it but finish 10 × 20s per leg.
         </div>
-
-        <div class="ss-set-card" id="ss-10">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 10</span>
-            <span class="ss-set-effort">6 pts</span>
-            <span class="ss-mu-badge">Try real MU</span>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-gb-phase">Idle</div><div class="emom-min" id="emom-gb-min">— of 10</div></div>
+            <div class="emom-time" id="emom-gb-time">60</div>
           </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">3 PU</span>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('gb',10)">Start 10 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('gb')">Stop</button>
           </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <div class="ss-set-card" id="ss-11">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 11</span>
-            <span class="ss-set-effort">12 pts</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">5 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
-        </div>
-
-        <div class="ss-set-card ss-peak" id="ss-12">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 12</span>
-            <span class="ss-set-effort">19 pts — PEAK</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">3 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">7 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
         </div>
       </div>
     </div>
 
-    <!-- BLOC 4 -->
-    <div class="block" id="b10-b4">
-      <div class="block-header" onclick="toggleBlock('b10-b4')">
-        <div class="block-num blue">5</div>
-        <div class="block-title-area">
-          <div class="block-name">Bloc 4 — Sets 13–14</div>
-          <div class="block-meta">2 sets · almost there</div>
-        </div>
-        <span class="block-time">Unlimited</span>
-        <span class="block-chevron">▾</span>
+    <!-- ASHURA ROUTINE -->
+    <div class="block" id="b12-ash">
+      <div class="block-header" onclick="toggleBlock('b12-ash')">
+        <div class="block-num red">5</div>
+        <div class="block-title-area"><div class="block-name">Ashura — Pull-ups & Dead Hang <span class="new-badge">ENDURANCE</span></div><div class="block-meta">Pyramid · Bloc 1 finds N · Bloc 2 repeats N times</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
 
-        <div class="callout coach">
-          <div class="callout-title">Real MU challenge</div>
-          Try set 13 with a real muscle-up.
+        <div class="callout warn">
+          <div class="callout-title">How the Ashura works</div>
+          <strong>Bloc 1 — ONE continuous set:</strong> 1 pull-up → 1s dead hang → 2 pull-ups → 2s dead hang → 3 pull-ups → 3s dead hang → ... continue until failure. No rest between stages. The stage where you fail = <strong>N</strong>.<br><br>
+          <strong>Bloc 2 — N sets:</strong> Each set repeats the Bloc 1 structure (1/1s → 2/2s → 3/3s → ... until failure). Take at least 2:30 rest between sets. You might reach stage 5 on set 1, then 4, then 4, then 3, then 3 — that's normal.<br><br>
+          <strong>Count dead hang from 0!</strong> The dead hang between stages is active recovery — your forearms are still gripping the bar.
         </div>
 
-        <div class="ss-set-card" id="ss-13">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 13</span>
-            <span class="ss-set-effort">7 pts</span>
-            <span class="ss-mu-badge">Try real MU</span>
-          </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">4 PU</span>
-          </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
+        <div class="ashura-card">
+          <div class="ashura-title">Bloc 1 — Find your N</div>
+          <div class="ashura-sub">One continuous set. No rest. Go until failure.</div>
+          <div class="ashura-stage"><span class="ashura-stage-num">1</span><span class="ashura-stage-detail"><strong>1 pull-up</strong> → 1s dead hang</span></div>
+          <div class="ashura-stage"><span class="ashura-stage-num">2</span><span class="ashura-stage-detail"><strong>2 pull-ups</strong> → 2s dead hang</span></div>
+          <div class="ashura-stage"><span class="ashura-stage-num">3</span><span class="ashura-stage-detail"><strong>3 pull-ups</strong> → 3s dead hang</span></div>
+          <div class="ashura-stage"><span class="ashura-stage-num">4</span><span class="ashura-stage-detail"><strong>4 pull-ups</strong> → 4s dead hang</span></div>
+          <div class="ashura-stage"><span class="ashura-stage-num">…</span><span class="ashura-stage-detail">Continue until failure → that stage = <strong>N</strong></span></div>
         </div>
 
-        <div class="ss-set-card ss-peak" id="ss-14">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 14</span>
-            <span class="ss-set-effort">13 pts — PEAK</span>
+        <div class="log-card">
+          <div class="log-title">Log your Ashura</div>
+          <div class="log-row">
+            <label>Bloc 1 — N (failed at stage)<input type="number" id="ash-n" placeholder="e.g. 5"></label>
           </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">2 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">6 PU</span>
+          <div class="log-row">
+            <label>Bloc 2 — stages reached per set<textarea id="ash-b2" placeholder="e.g. 5, 4, 4, 3, 3"></textarea></label>
           </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
+          <div class="log-row">
+            <label>Notes<textarea id="ash-notes" placeholder="grip fatigue, form breakdown..."></textarea></label>
+          </div>
+        </div>
+
+        <div class="callout tip" style="margin-top:10px;">
+          <div class="callout-title">Why this routine is legendary</div>
+          It auto-scales to your level forever. A beginner might get N=3, an advanced athlete N=8. The volume of Bloc 2 adjusts accordingly. Keep this routine — you'll revisit it for years.
         </div>
       </div>
     </div>
 
-    <!-- BLOC 5 -->
-    <div class="block" id="b10-b5">
-      <div class="block-header" onclick="toggleBlock('b10-b5')">
+    <!-- OPTIONAL PROGRESSIVE EMOM -->
+    <div class="block" id="b12-fin">
+      <div class="block-header" onclick="toggleBlock('b12-fin')">
         <div class="block-num purple">6</div>
-        <div class="block-title-area">
-          <div class="block-name">Bloc 5 — Set 15</div>
-          <div class="block-meta">1 set · finish line</div>
-        </div>
-        <span class="block-time">Unlimited</span>
-        <span class="block-chevron">▾</span>
+        <div class="block-title-area"><div class="block-name">PMU + Bar Dips — Progressive EMOM (optional)</div><div class="block-meta">Unlimited · 1 PMU + 5 BD per min → increases after min 5</div></div>
+        <span class="block-time">10+ min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-
         <div class="callout coach">
-          <div class="callout-title">Last one</div>
-          Try this with a real muscle-up — it's the last set and relatively short. End strong.
+          <div class="callout-title">How it progresses</div>
+          Minutes 1–5: 1 pseudo muscle-up + 5 bar dips per minute. From minute 6 onward, add 1 bar dip per minute (so min 6 = 6 BD, min 7 = 7 BD...). Continue until you fail on the bar dips. Don't release the bar between PMU and BD. Adjust base BD count (3, 5, 7) if needed.
         </div>
 
-        <div class="ss-set-card ss-peak" id="ss-15">
-          <div class="ss-set-head">
-            <span class="ss-set-num">Set 15</span>
-            <span class="ss-set-effort">8 pts — FINAL</span>
-            <span class="ss-mu-badge">Try real MU</span>
+        <div class="prog-emom-card">
+          <div class="prog-emom-readout">
+            <div><div class="prog-emom-phase" id="pemom-phase">Idle</div></div>
+            <div class="prog-emom-time" id="pemom-time">60</div>
           </div>
-          <div class="ss-flow-row">
-            <span class="ss-chip pmu">1 PMU</span><span class="ss-sep">→</span>
-            <span class="ss-chip bd">1 BD</span><span class="ss-sep">→</span>
-            <span class="ss-chip pu">5 PU</span>
+          <div class="prog-emom-info" id="pemom-info">Min — · 1 PMU + ? BD</div>
+          <div class="prog-emom-controls">
+            <button class="prog-emom-btn primary" id="pemom-start" onclick="startProgEmom()">Start</button>
+            <button class="prog-emom-btn danger" onclick="stopProgEmom()">Stop</button>
           </div>
-          <button class="ss-done-btn" onclick="toggleSsSet(this)">Mark done</button>
         </div>
       </div>
-    </div>
-
-    <!-- PROGRESS SUMMARY -->
-    <div class="s10-progress-card" id="s10-progress">
-      <div class="s10-progress-title">Session Progress</div>
-      <div class="s10-progress-bar"><div class="s10-progress-fill" id="s10-progress-fill" style="width:0%"></div></div>
-      <div class="s10-progress-text" id="s10-progress-text">0 of 15 sets completed</div>
     </div>
 
     <!-- STRETCH -->
-    <div class="block" id="b10-st">
-      <div class="block-header" onclick="toggleBlock('b10-st')">
+    <div class="block" id="b12-st">
+      <div class="block-header" onclick="toggleBlock('b12-st')">
         <div class="block-num muted">🧘</div>
-        <div class="block-title-area">
-          <div class="block-name">Stretching</div>
-          <div class="block-meta">Full body</div>
-        </div>
-        <span class="block-time">20 min</span>
-        <span class="block-chevron">▾</span>
+        <div class="block-title-area"><div class="block-name">Stretching</div><div class="block-meta">Full body — extended list</div></div>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
         <div class="stretch-grid">
-          <div class="stretch-item">Deltoids</div>
-          <div class="stretch-item">Rotator cuff</div>
-          <div class="stretch-item">Pectorals</div>
-          <div class="stretch-item">Triceps</div>
-          <div class="stretch-item">Biceps</div>
-          <div class="stretch-item">Brachioradialis</div>
-          <div class="stretch-item">Brachialis</div>
-          <div class="stretch-item">Lats</div>
-          <div class="stretch-item">Lower back</div>
-          <div class="stretch-item">Psoas</div>
+          <div class="stretch-item">Deltoids</div><div class="stretch-item">Rotator cuff</div>
+          <div class="stretch-item">Pectorals</div><div class="stretch-item">Triceps</div>
+          <div class="stretch-item">Biceps</div><div class="stretch-item">Brachialis</div>
+          <div class="stretch-item">Brachioradialis</div><div class="stretch-item">Lats</div>
+          <div class="stretch-item">Lower back</div><div class="stretch-item">Abs</div>
+          <div class="stretch-item">Obliques</div><div class="stretch-item">Psoas</div>
+          <div class="stretch-item">Hamstrings</div><div class="stretch-item">Glutes</div>
         </div>
       </div>
     </div>
-
   </section>
 
   <script>
-    // BEEP
     let audioCtx;
-    function beep(freq=1000, duration=0.2) {
+    function beep(freq=1000, dur=0.2) {
       try {
         if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.frequency.value = freq;
-        osc.type = 'sine';
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        gain.gain.setValueAtTime(0, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 0.01);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-      } catch(e) {}
+        const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+        o.frequency.value = freq; o.type = 'sine'; o.connect(g); g.connect(audioCtx.destination);
+        g.gain.setValueAtTime(0, audioCtx.currentTime);
+        g.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime+0.01);
+        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+dur);
+        o.start(); o.stop(audioCtx.currentTime+dur);
+      } catch(e){}
     }
 
-    // BLOCK TOGGLE
-    function toggleBlock(id) {
-      document.getElementById(id).classList.toggle('open');
+    function toggleBlock(id) { document.getElementById(id).classList.toggle('open'); }
+    function selectOpt(gid, el) { document.querySelectorAll('#'+gid+' .option-btn').forEach(b=>b.classList.remove('selected')); el.classList.add('selected'); }
+
+    // GENERIC COUNTER
+    const counters = {};
+    function adjCounter(id, target, delta) {
+      if(!counters[id]) counters[id] = 0;
+      counters[id] = Math.max(0, counters[id] + delta);
+      const v = counters[id];
+      document.getElementById(id+'-count').textContent = v;
+      document.getElementById(id+'-fill').style.width = Math.min(100,(v/target)*100)+'%';
+      const z = document.getElementById(id+'-zone');
+      if(v >= target) { z.className='counter-zone in-range'; z.textContent=`✓ Target hit — ${v} reps!`; }
+      else { z.className='counter-zone'; z.textContent=`Target: ${target} reps · ${v} so far`; }
     }
 
-    // OPTION SELECTOR
-    function selectOpt(groupId, el) {
-      document.querySelectorAll('#'+groupId+' .option-btn').forEach(b => b.classList.remove('selected'));
-      el.classList.add('selected');
+    // EMOM TIMERS
+    const emoms = {};
+    function stopEmom(id) {
+      if(emoms[id]) clearInterval(emoms[id].iv);
+      delete emoms[id];
+      const t=document.getElementById('emom-'+id+'-time'), p=document.getElementById('emom-'+id+'-phase'), m=document.getElementById('emom-'+id+'-min');
+      if(t) t.textContent='60'; if(p){p.textContent='Idle';p.className='emom-phase';} if(m) m.textContent='';
+    }
+    function startEmom(id, total) {
+      stopEmom(id);
+      let s=60, cur=1;
+      const t=document.getElementById('emom-'+id+'-time'), p=document.getElementById('emom-'+id+'-phase'), m=document.getElementById('emom-'+id+'-min');
+      p.textContent=`🔔 GO — Min ${cur}`; p.className='emom-phase go'; m.textContent=`Min ${cur} of ${total}`; t.textContent=s; beep(1000,0.2);
+      emoms[id]={iv:setInterval(()=>{
+        s--;
+        if(s>0){t.textContent=s;if(s<=3)beep(1200,0.08);}
+        else{cur++;if(cur>total){clearInterval(emoms[id].iv);delete emoms[id];p.textContent='✓ Complete';p.className='emom-phase done';t.textContent='✓';m.textContent=`Done · ${total} of ${total}`;beep(660,0.5);return;}
+        s=60;p.textContent=`🔔 GO — Min ${cur}`;m.textContent=`Min ${cur} of ${total}`;t.textContent=s;beep(1000,0.25);}
+      },1000)};
     }
 
-    // FRONT LEVER OPTION TOGGLE
-    function showFlOption(opt) {
-      document.getElementById('fl-opt1').style.display = opt === 1 ? 'block' : 'none';
-      document.getElementById('fl-opt2').style.display = opt === 2 ? 'block' : 'none';
+    // PROGRESSIVE EMOM (Session 12 finisher)
+    let pemom = null;
+    function stopProgEmom() {
+      if(pemom) clearInterval(pemom.iv);
+      pemom = null;
+      document.getElementById('pemom-time').textContent = '60';
+      document.getElementById('pemom-phase').textContent = 'Idle';
+      document.getElementById('pemom-phase').className = 'prog-emom-phase';
+      document.getElementById('pemom-info').textContent = 'Min — · 1 PMU + ? BD';
     }
-
-    // CUMULATIVE TIMER (for front lever advanced tuck)
-    const cumulTimers = {};
-    function toggleCumulTimer(id) {
-      const btn = document.getElementById(id + '-cumul-btn');
-      if (cumulTimers[id] && cumulTimers[id].running) {
-        // Pause
-        clearInterval(cumulTimers[id].iv);
-        cumulTimers[id].running = false;
-        btn.textContent = 'Resume hold';
-        btn.classList.remove('primary');
-      } else {
-        // Start/resume
-        if (!cumulTimers[id]) cumulTimers[id] = { totalMs: 0, running: false };
-        cumulTimers[id].running = true;
-        btn.textContent = 'Pause';
-        btn.classList.add('primary');
-        beep(900, 0.15);
-        const targetMs = 120000; // 2 minutes
-
-        cumulTimers[id].iv = setInterval(() => {
-          cumulTimers[id].totalMs += 100;
-          const total = cumulTimers[id].totalMs;
-          const secs = Math.floor(total / 1000);
-          const mins = Math.floor(secs / 60);
-          const rem = secs % 60;
-          const timeEl = document.getElementById(id + '-cumul-time');
-          const fillEl = document.getElementById(id + '-cumul-fill');
-          timeEl.textContent = `${mins}:${String(rem).padStart(2, '0')}`;
-          fillEl.style.width = Math.min(100, (total / targetMs) * 100) + '%';
-
-          if (total >= targetMs && !cumulTimers[id].completed) {
-            cumulTimers[id].completed = true;
-            timeEl.classList.add('complete');
-            beep(660, 0.5);
-          }
-        }, 100);
-      }
-    }
-
-    function resetCumulTimer(id) {
-      if (cumulTimers[id]) {
-        clearInterval(cumulTimers[id].iv);
-        delete cumulTimers[id];
-      }
-      const btn = document.getElementById(id + '-cumul-btn');
-      const timeEl = document.getElementById(id + '-cumul-time');
-      const fillEl = document.getElementById(id + '-cumul-fill');
-      btn.textContent = 'Start hold';
-      btn.classList.add('primary');
-      timeEl.textContent = '0:00';
-      timeEl.classList.remove('complete');
-      fillEl.style.width = '0%';
-    }
-
-    // DRAGON FLAG COUNTER
-    let dfCount = 0;
-    function adjustDfCounter(delta) {
-      dfCount = Math.max(0, dfCount + delta);
-      document.getElementById('df-count').textContent = dfCount;
-      document.getElementById('df-fill').style.width = Math.min(100, (dfCount / 50) * 100) + '%';
-      const zone = document.getElementById('df-zone');
-      if (dfCount >= 50) {
-        zone.className = 'counter-zone in-range';
-        zone.textContent = `✓ Target hit — ${dfCount} reps!`;
-      } else {
-        zone.className = 'counter-zone';
-        zone.textContent = `Target: 50 reps · ${dfCount} so far`;
-      }
+    function startProgEmom() {
+      stopProgEmom();
+      let s=60, cur=1, baseBD=5;
+      const t=document.getElementById('pemom-time'), p=document.getElementById('pemom-phase'), info=document.getElementById('pemom-info');
+      const getBD = (m) => m <= 5 ? baseBD : baseBD + (m - 5);
+      p.textContent=`🔔 Min ${cur}`; p.style.color='var(--green)'; info.textContent=`Min ${cur} · 1 PMU + ${getBD(cur)} BD`; t.textContent=s; beep(1000,0.2);
+      pemom={iv:setInterval(()=>{
+        s--;
+        if(s>0){t.textContent=s;if(s<=3)beep(1200,0.08);}
+        else{cur++;s=60;
+          p.textContent=`🔔 Min ${cur}`; info.textContent=`Min ${cur} · 1 PMU + ${getBD(cur)} BD`; t.textContent=s; beep(1000,0.25);
+        }
+      },1000)};
     }
 
     // TABS
-    function switchTab(tab) {
-      document.querySelectorAll('.session').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
-      document.getElementById(tab).classList.add('active');
-      window.scrollTo({top:0, behavior:'smooth'});
-    }
-    document.querySelectorAll('.tabs .tab').forEach(btn => {
-      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    document.querySelectorAll('.tabs .tab').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.session').forEach(s=>s.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===btn.dataset.tab));
+        document.getElementById(btn.dataset.tab).classList.add('active');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
     });
-    // SESSION 10: SUPERSET TRACKER
-    function toggleSsSet(btn) {
-      btn.classList.toggle('done');
-      const card = btn.closest('.ss-set-card');
-      card.classList.toggle('completed');
-      btn.textContent = btn.classList.contains('done') ? '✓ Done' : 'Mark done';
-      updateS10Progress();
-    }
 
-    function updateS10Progress() {
-      const total = 15;
-      const done = document.querySelectorAll('#s10 .ss-done-btn.done').length;
-      const fill = document.getElementById('s10-progress-fill');
-      const text = document.getElementById('s10-progress-text');
-      if (fill) fill.style.width = ((done / total) * 100) + '%';
-      if (text) {
-        if (done === total) {
-          text.textContent = '🎉 All 15 sets completed!';
-          text.style.color = 'var(--green)';
-        } else {
-          text.textContent = `${done} of ${total} sets completed`;
-          text.style.color = '';
-        }
-      }
-    }
+    // Double pyramid check styling
+    document.querySelectorAll('.dp-row').forEach(r=>{
+      const obs = new MutationObserver(()=>{
+        r.querySelector('.dp-check').textContent = r.classList.contains('done') ? '✓' : '○';
+      });
+      obs.observe(r, {attributes:true, attributeFilter:['class']});
+    });
   </script>
 </body>
 </html>

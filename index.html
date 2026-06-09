@@ -3,60 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Calisthenics — Sessions 13 & 14</title>
+  <title>Calisthenics — Sessions 11 bis & 12 bis + Lift Day</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0f0e0c;
-      --card: #1a1916;
-      --card2: #211f1b;
-      --text: #f0ece4;
-      --muted: #8a8278;
-      --line: #2e2b26;
-      --accent: #e8c547;
-      --accent-dim: rgba(232,197,71,0.12);
-      --green: #4caf7d;
-      --green-dim: rgba(76,175,125,0.12);
-      --red: #e05b4b;
-      --red-dim: rgba(224,91,75,0.12);
-      --orange: #e8894e;
-      --orange-dim: rgba(232,137,78,0.12);
-      --blue: #5b9ce8;
-      --blue-dim: rgba(91,156,232,0.12);
-      --purple: #a07de8;
-      --purple-dim: rgba(160,125,232,0.12);
-      --radius: 20px;
-      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --bg: #0f0e0c; --card: #1a1916; --card2: #211f1b; --text: #f0ece4; --muted: #8a8278; --line: #2e2b26;
+      --accent: #e8c547; --accent-dim: rgba(232,197,71,0.12);
+      --green: #4caf7d; --green-dim: rgba(76,175,125,0.12);
+      --red: #e05b4b; --red-dim: rgba(224,91,75,0.12);
+      --orange: #e8894e; --orange-dim: rgba(232,137,78,0.12);
+      --blue: #5b9ce8; --blue-dim: rgba(91,156,232,0.12);
+      --purple: #a07de8; --purple-dim: rgba(160,125,232,0.12);
+      --radius: 20px; --shadow: 0 4px 24px rgba(0,0,0,0.4);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); -webkit-tap-highlight-color: transparent; }
     body { max-width: 680px; margin: 0 auto; padding: 16px 14px calc(60px + env(safe-area-inset-bottom)) 14px; }
 
     .hero { margin-top: 14px; margin-bottom: 18px; padding: 0 4px; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
-    .hero-eyebrow::before { content: ''; display: block; width: 18px; height: 2px; background: var(--green); }
-    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 36px; line-height: 1.0; letter-spacing: -0.01em; margin-bottom: 8px; }
-    .hero h1 em { font-style: italic; color: var(--green); }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 18px; height: 2px; background: var(--orange); }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 34px; line-height: 1.0; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .hero h1 em { font-style: italic; color: var(--orange); }
     .hero-sub { font-size: 13px; color: var(--muted); line-height: 1.5; }
     .stars { display: inline-flex; gap: 2px; margin-left: 8px; }
-    .star-on { color: var(--green); }
-    .star-off { color: var(--line); }
+    .star-on { color: var(--orange); } .star-off { color: var(--line); }
 
-    .deload-banner { display: flex; gap: 12px; align-items: flex-start; background: linear-gradient(135deg, var(--green-dim), transparent); border: 1px solid var(--green-dim); border-left: 3px solid var(--green); padding: 12px 14px; border-radius: 12px; margin-bottom: 16px; }
-    .deload-icon { font-size: 22px; flex-shrink: 0; line-height: 1; padding-top: 2px; }
-    .deload-text { font-size: 13px; line-height: 1.5; color: #cbc6bd; }
-    .deload-text strong { display: block; color: var(--text); margin-bottom: 4px; font-size: 14px; }
+    .intensity-banner { display: flex; gap: 12px; align-items: flex-start; background: linear-gradient(135deg, var(--orange-dim), transparent); border: 1px solid var(--orange-dim); border-left: 3px solid var(--orange); padding: 12px 14px; border-radius: 12px; margin-bottom: 16px; }
+    .intensity-icon { font-size: 22px; flex-shrink: 0; line-height: 1; padding-top: 2px; }
+    .intensity-text { font-size: 13px; line-height: 1.5; color: #cbc6bd; }
+    .intensity-text strong { display: block; color: var(--text); margin-bottom: 4px; font-size: 14px; }
 
-    .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; padding: 4px; background: var(--card); border-radius: 14px; border: 1px solid var(--line); }
-    .tab { background: transparent; border: none; color: var(--muted); padding: 10px 8px; border-radius: 10px; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .tabs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 18px; padding: 4px; background: var(--card); border-radius: 14px; border: 1px solid var(--line); }
+    .tab { background: transparent; border: none; color: var(--muted); padding: 10px 6px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .2s; display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .tab.active { background: var(--card2); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
-    .tab-label-small { font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: .02em; }
-    .tab.active .tab-label-small { color: var(--green); }
-    .session { display: none; }
-    .session.active { display: block; }
+    .tab-label-small { font-size: 9px; font-weight: 500; color: var(--muted); letter-spacing: .01em; text-align:center; }
+    .tab.active .tab-label-small { color: var(--orange); }
+    .tab.lift.active { background: var(--blue-dim); }
+    .tab.lift.active .tab-label-small { color: var(--blue); }
+    .session { display: none; } .session.active { display: block; }
 
     .overview-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 16px; margin-bottom: 16px; }
-    .overview-title { font-family: 'DM Serif Display', serif; font-size: 22px; line-height: 1.15; margin-bottom: 8px; }
+    .overview-title { font-family: 'DM Serif Display', serif; font-size: 21px; line-height: 1.15; margin-bottom: 8px; }
     .overview-sub { font-size: 13px; color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
     .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
     .pill { font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: var(--card2); border: 1px solid var(--line); color: var(--muted); }
@@ -65,17 +53,20 @@
     .pill.green { background: var(--green-dim); color: var(--green); border-color: rgba(76,175,125,0.3); }
     .pill.blue { background: var(--blue-dim); color: var(--blue); border-color: rgba(91,156,232,0.3); }
     .pill.purple { background: var(--purple-dim); color: var(--purple); border-color: rgba(160,125,232,0.3); }
+    .pill.new { background: var(--red-dim); color: var(--red); border-color: rgba(224,91,75,0.4); }
 
-    .coach-note { background: var(--card2); border-radius: 14px; padding: 14px; border-left: 3px solid var(--green); }
-    .coach-note-header { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+    .coach-note { background: var(--card2); border-radius: 14px; padding: 14px; border-left: 3px solid var(--orange); }
+    .coach-note.blue { border-left-color: var(--blue); }
+    .coach-note-header { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
+    .coach-note.blue .coach-note-header { color: var(--blue); }
     .coach-note-body { font-size: 13px; line-height: 1.55; color: #cbc6bd; font-style: italic; }
 
     .block { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; transition: all .2s; }
     .block.open { box-shadow: var(--shadow); }
     .block-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; cursor: pointer; user-select: none; }
-    .block-num { width: 32px; height: 32px; border-radius: 10px; background: var(--green-dim); color: var(--green); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; flex-shrink: 0; }
+    .block-num { width: 32px; height: 32px; border-radius: 10px; background: var(--orange-dim); color: var(--orange); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; flex-shrink: 0; }
     .block-num.muted { background: var(--card2); color: var(--muted); }
-    .block-num.orange { background: var(--orange-dim); color: var(--orange); }
+    .block-num.green { background: var(--green-dim); color: var(--green); }
     .block-num.red { background: var(--red-dim); color: var(--red); }
     .block-num.blue { background: var(--blue-dim); color: var(--blue); }
     .block-num.purple { background: var(--purple-dim); color: var(--purple); }
@@ -87,7 +78,7 @@
     .block.open .block-chevron { transform: rotate(180deg); }
     .block-body { display: none; padding: 0 16px 16px; }
     .block.open .block-body { display: block; }
-    .block .new-badge { font-size: 9px; font-weight: 800; letter-spacing: .08em; background: var(--green); color: white; padding: 2px 5px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; }
+    .block .new-badge { font-size: 9px; font-weight: 800; letter-spacing: .08em; background: var(--red); color: white; padding: 2px 5px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; }
 
     .callout { background: var(--card2); border-radius: 12px; padding: 12px 14px; font-size: 13px; line-height: 1.55; color: #cbc6bd; margin-top: 10px; }
     .callout strong { color: var(--text); }
@@ -95,10 +86,12 @@
     .callout.warn { border-left: 3px solid var(--red); }
     .callout.coach { border-left: 3px solid var(--orange); }
     .callout.green { border-left: 3px solid var(--green); }
+    .callout.blue { border-left: 3px solid var(--blue); }
     .callout-title { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
     .callout.warn .callout-title { color: var(--red); }
     .callout.coach .callout-title { color: var(--orange); }
     .callout.green .callout-title { color: var(--green); }
+    .callout.blue .callout-title { color: var(--blue); }
 
     .cycles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
     .cycle-pip { aspect-ratio: 1; border-radius: 14px; background: var(--card2); border: 2px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-weight: 800; font-size: 12px; color: var(--muted); cursor: pointer; transition: all .2s; }
@@ -110,350 +103,165 @@
     .exercise-item { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
     .exercise-item:last-child { border-bottom: 0; }
     .exercise-item-name { color: var(--text); }
-    .exercise-item-reps { color: var(--green); font-weight: 700; font-size: 13px; }
+    .exercise-item-reps { color: var(--orange); font-weight: 700; font-size: 13px; }
 
     .option-grid { display: grid; gap: 8px; margin-top: 10px; }
     .option-btn { background: var(--card2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: all .15s; display: flex; flex-direction: column; gap: 4px; text-align: left; font-family: inherit; color: var(--text); }
-    .option-btn.selected { background: var(--green-dim); border-color: var(--green); }
+    .option-btn.selected { background: var(--orange-dim); border-color: var(--orange); }
     .option-btn-label { font-size: 13px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
     .option-btn-tag { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: var(--card); color: var(--muted); letter-spacing: .04em; }
-    .option-btn.selected .option-btn-tag { background: var(--green); color: var(--bg); }
+    .option-btn.selected .option-btn-tag { background: var(--orange); color: var(--bg); }
     .option-btn-detail { font-size: 12px; color: var(--muted); line-height: 1.4; }
 
-    /* COUNTER */
     .counter-card { background: var(--card2); border-radius: 14px; padding: 16px; margin-top: 12px; text-align: center; }
     .counter-target { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; }
-    .counter-value { font-family: 'DM Serif Display', serif; font-size: 64px; line-height: 1; margin: 6px 0; color: var(--green); font-variant-numeric: tabular-nums; }
+    .counter-value { font-family: 'DM Serif Display', serif; font-size: 64px; line-height: 1; margin: 6px 0; color: var(--orange); font-variant-numeric: tabular-nums; }
     .counter-bar { height: 6px; background: var(--bg); border-radius: 999px; overflow: hidden; margin: 10px 0 14px; }
-    .counter-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--accent)); transition: width .3s; border-radius: 999px; }
+    .counter-fill { height: 100%; background: linear-gradient(90deg, var(--orange), var(--accent)); transition: width .3s; border-radius: 999px; }
     .counter-controls { display: flex; gap: 6px; justify-content: center; }
     .counter-btn { background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: 10px 14px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
-    .counter-btn.add { background: var(--green); color: var(--bg); border-color: var(--green); }
+    .counter-btn.add { background: var(--orange); color: var(--bg); border-color: var(--orange); }
     .counter-btn.add:active { transform: scale(0.95); }
     .counter-btn.minus { color: var(--red); }
     .counter-zone { margin-top: 12px; padding: 8px 12px; border-radius: 10px; background: var(--bg); font-size: 12px; color: var(--muted); }
     .counter-zone.in-range { background: var(--green-dim); color: var(--green); }
 
-    /* EMOM TIMER */
-    .emom-card { background: linear-gradient(135deg, var(--green-dim), var(--card2)); border: 1px solid rgba(76,175,125,0.4); border-radius: 16px; padding: 16px; margin-top: 12px; }
+    .emom-card { background: linear-gradient(135deg, var(--orange-dim), var(--card2)); border: 1px solid rgba(232,137,78,0.4); border-radius: 16px; padding: 16px; margin-top: 12px; }
     .emom-readout { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
-    .emom-phase { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--green); padding: 5px 10px; border-radius: 999px; background: var(--bg); border: 1px solid rgba(76,175,125,0.3); }
+    .emom-phase { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); padding: 5px 10px; border-radius: 999px; background: var(--bg); border: 1px solid rgba(232,137,78,0.3); }
     .emom-phase.go { color: var(--green); border-color: rgba(76,175,125,0.4); }
     .emom-phase.done { color: var(--muted); border-color: var(--line); }
     .emom-time { font-family: 'DM Serif Display', serif; font-size: 56px; line-height: 1; color: var(--text); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
     .emom-min { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
     .emom-controls { display: flex; gap: 8px; }
     .emom-btn { flex: 1; background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: 11px; border-radius: 12px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .15s; }
-    .emom-btn.primary { background: var(--green); color: var(--bg); border-color: var(--green); }
+    .emom-btn.primary { background: var(--orange); color: var(--bg); border-color: var(--orange); }
     .emom-btn.primary:active { transform: scale(0.97); }
     .emom-btn.danger { background: var(--card2); color: var(--red); border-color: rgba(224,91,75,0.3); }
 
-    /* PLANK CYCLE BLOCK */
-    .plank-block { background: var(--card2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; margin-top: 10px; }
-    .plank-block.intense { border-color: rgba(224,91,75,0.3); }
-    .plank-block.volume { border-color: rgba(91,156,232,0.3); }
-    .plank-block-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
-    .plank-block-cycles { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--text); }
-    .plank-block-strat { font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; margin-left: auto; }
-    .plank-block-strat.intense { background: var(--red-dim); color: var(--red); }
-    .plank-block-strat.volume { background: var(--blue-dim); color: var(--blue); }
-    .plank-block-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
-    .plank-flow { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
-    .plank-ex { display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
-    .plank-ex-name { font-size: 13px; color: var(--text); font-weight: 600; flex: 1; }
-    .plank-ex-time { font-size: 12px; font-weight: 700; color: var(--orange); padding: 3px 8px; border-radius: 8px; background: var(--orange-dim); white-space: nowrap; }
-    .plank-no-rest { font-size: 11px; color: var(--red); font-weight: 700; text-align: center; margin: -2px 0 8px; }
-    .plank-cycle-track { display: flex; gap: 6px; flex-wrap: wrap; }
-    .plank-cycle-pip { flex: 1; min-width: 40px; aspect-ratio: 1.3; background: var(--bg); border: 2px solid var(--line); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--muted); cursor: pointer; transition: all .15s; user-select: none; }
-    .plank-cycle-pip.done { background: var(--green-dim); border-color: var(--green); color: var(--green); }
-    .plank-cycle-pip:active { transform: scale(0.93); }
-
-    /* SET TRACKER */
-    .set-tracker { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-    .set-pip { flex: 1; min-width: 48px; aspect-ratio: 1.4; background: var(--card2); border: 2px solid var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--muted); cursor: pointer; transition: all .15s; user-select: none; }
-    .set-pip.done { background: var(--green-dim); border-color: var(--green); color: var(--green); }
-    .set-pip:active { transform: scale(0.95); }
-
-    /* CIRCUIT */
-    .circuit-card { background: var(--card2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; margin-top: 12px; }
-    .circuit-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
-    .circuit-target { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
-    .circuit-target strong { color: var(--accent); }
-    .circuit-step { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 6px; }
-    .circuit-step-num { width: 24px; height: 24px; border-radius: 7px; background: var(--orange-dim); color: var(--orange); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; flex-shrink: 0; }
-    .circuit-step-detail { flex: 1; font-size: 13px; color: var(--text); }
-    .circuit-step-detail .ch { color: var(--blue); font-weight: 700; }
-    .circuit-step-detail .ph { color: var(--orange); font-weight: 700; }
-    .circuit-rest { text-align: center; font-size: 11px; color: var(--muted); padding: 4px 0; font-weight: 600; }
-
-    /* STOPWATCH */
-    .stopwatch-card { background: linear-gradient(135deg, var(--orange-dim), var(--card2)); border: 1px solid rgba(232,137,78,0.4); border-radius: 16px; padding: 16px; margin-top: 12px; text-align: center; }
-    .stopwatch-label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
-    .stopwatch-time { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; margin-bottom: 12px; }
-    .stopwatch-controls { display: flex; gap: 8px; }
-    .stopwatch-btn { flex: 1; background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: 11px; border-radius: 12px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
-    .stopwatch-btn.primary { background: var(--orange); color: var(--bg); border-color: var(--orange); }
-    .stopwatch-btn.danger { color: var(--red); border-color: rgba(224,91,75,0.3); }
-
-    /* DOUBLE PYRAMID (S14) */
+    /* DOUBLE PYRAMID */
     .dp-wrap { margin-top: 14px; display: grid; gap: 6px; }
-    .dp-row { background: var(--card2); border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; padding: 10px 12px; gap: 10px; cursor: pointer; transition: all .15s; }
+    .dp-row { background: var(--card2); border: 1px solid var(--line); border-radius: 12px; display: flex; align-items: center; padding: 10px 12px; gap: 8px; cursor: pointer; transition: all .15s; }
     .dp-row.done { border-color: var(--green); opacity: 0.6; }
     .dp-row.peak { border-color: rgba(232,197,71,0.4); background: linear-gradient(135deg, var(--accent-dim), var(--card2)); }
-    .dp-set { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--text); min-width: 36px; }
-    .dp-pu { font-size: 12px; font-weight: 700; color: var(--blue); padding: 3px 8px; border-radius: 8px; background: var(--blue-dim); }
-    .dp-push { font-size: 12px; font-weight: 700; color: var(--orange); padding: 3px 8px; border-radius: 8px; background: var(--orange-dim); }
+    .dp-set { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--text); min-width: 34px; }
+    .dp-hold { font-size: 12px; font-weight: 700; color: var(--orange); padding: 3px 8px; border-radius: 8px; background: var(--orange-dim); white-space:nowrap; }
+    .dp-reps { font-size: 12px; font-weight: 700; color: var(--blue); padding: 3px 8px; border-radius: 8px; background: var(--blue-dim); white-space:nowrap; }
     .dp-check { margin-left: auto; font-size: 16px; color: var(--muted); }
     .dp-row.done .dp-check { color: var(--green); }
 
-    /* STRETCH */
+    .set-tracker { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .set-pip { flex: 1; min-width: 44px; aspect-ratio: 1.4; background: var(--card2); border: 2px solid var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--muted); cursor: pointer; transition: all .15s; user-select: none; }
+    .set-pip.done { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+    .set-pip:active { transform: scale(0.95); }
+
+    /* STAGE LADDER (12bis over-the-bar holds) */
+    .ladder-card { background: linear-gradient(135deg, var(--purple-dim), var(--card2)); border: 1px solid rgba(160,125,232,0.3); border-radius: 16px; padding: 16px; margin-top: 12px; }
+    .ladder-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--purple); margin-bottom: 4px; }
+    .ladder-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
+    .ladder-flow { display: flex; flex-direction: column; gap: 4px; }
+    .ladder-step { display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
+    .ladder-step-icon { width: 28px; height: 28px; flex-shrink: 0; }
+    .ladder-step-name { flex: 1; font-size: 13px; color: var(--text); font-weight: 600; }
+    .ladder-step-time { font-size: 12px; font-weight: 700; color: var(--purple); padding: 3px 8px; border-radius: 8px; background: var(--purple-dim); }
+    .ladder-sets { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+
+    .ashura-card { background: linear-gradient(135deg, var(--red-dim), var(--card2)); border: 1px solid rgba(224,91,75,0.3); border-radius: 16px; padding: 16px; margin-top: 12px; }
+    .ashura-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--red); margin-bottom: 4px; }
+    .ashura-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; line-height: 1.5; }
+    .ashura-stage { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 6px; font-size: 13px; }
+    .ashura-stage-num { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--accent); min-width: 28px; }
+    .ashura-stage-detail { color: #cbc6bd; flex: 1; }
+    .ashura-stage-detail strong { color: var(--text); }
+
+    .log-card { background: var(--card2); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-top: 12px; }
+    .log-title { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .log-row { display: flex; gap: 8px; margin-bottom: 8px; }
+    .log-row label { flex: 1; font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+    .log-row input, .log-row textarea { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px; color: var(--text); font-family: inherit; font-size: 13px; width: 100%; }
+    .log-row textarea { min-height: 50px; resize: vertical; }
+
     .stretch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 10px; }
     .stretch-item { background: var(--card2); border-radius: 8px; padding: 8px 10px; font-size: 12px; color: #cbc6bd; }
+
+    /* LIFT DAY EXERCISE CARD */
+    .lift-ex { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-bottom: 10px; }
+    .lift-ex-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .lift-ex-num { width: 28px; height: 28px; border-radius: 8px; background: var(--blue-dim); color: var(--blue); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+    .lift-ex-name { font-size: 15px; font-weight: 700; flex: 1; }
+    .lift-ex-scheme { font-size: 12px; font-weight: 800; color: var(--accent); white-space: nowrap; }
+    .lift-ex-detail { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+    .lift-ex-detail .tempo { color: var(--purple); font-weight: 700; }
+    .lift-set-pips { display: flex; gap: 6px; }
+    .lift-set-pip { flex: 1; padding: 7px 0; text-align: center; background: var(--card2); border: 1px solid var(--line); border-radius: 8px; font-size: 12px; font-weight: 700; color: var(--muted); cursor: pointer; transition: all .15s; user-select: none; }
+    .lift-set-pip.done { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+    .lift-station { font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 16px 0 8px; display: flex; align-items: center; gap: 8px; }
+    .lift-station::before { content: '📍'; }
   </style>
 </head>
 <body>
 
   <div class="hero">
-    <div class="hero-eyebrow">Calisthenics · Deload Week</div>
-    <h1>Sessions <em>13 & 14</em></h1>
-    <p class="hero-sub">Deload week — recovery is the goal, not progress. Plank endurance, light muscle-ups, and express pull circuits. <span class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span><span class="star-off">★</span></span></p>
+    <div class="hero-eyebrow">Calisthenics · Training Week</div>
+    <h1>Sessions <em>11 bis & 12 bis</em></h1>
+    <p class="hero-sub">Back to training after deload — refined MU work, grip strength, plyometrics, plus a new hypertrophy lift day. <span class="stars"><span class="star-on">★</span><span class="star-on">★</span><span class="star-on">★</span><span class="star-off">★</span><span class="star-off">★</span></span></p>
   </div>
 
-  <div class="deload-banner">
-    <div class="deload-icon">🌙</div>
-    <div class="deload-text">
-      <strong>This is a deload week — rest is the point</strong>
-      Quentin was explicit: your main goal this week is to recover, not to progress. Don't rush into every exercise. There's content here so you have something to do, but feel free to do less. Listen to your body and take the rest.
+  <div class="intensity-banner">
+    <div class="intensity-icon">⚡</div>
+    <div class="intensity-text">
+      <strong>Refined versions + a third day for the gymnast look</strong>
+      Sessions 11 & 12 reworked: structured MU sets, static lunges + jump squats, one-arm scapular pulls, clapping push-ups, L-sit raises, and the Ashura routine (now chin-ups). The <strong>Lift Day</strong> tab is the added hypertrophy work — straight sets, ~50 min, built for visible muscle without 2-hour marathons.
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab active" data-tab="s13">Session 13<span class="tab-label-small">Plank endurance cycles</span></button>
-    <button class="tab" data-tab="s14">Session 14<span class="tab-label-small">MU + express circuits</span></button>
+    <button class="tab active" data-tab="s11b">Session 11 bis<span class="tab-label-small">MU · grip · plyo</span></button>
+    <button class="tab" data-tab="s12b">Session 12 bis<span class="tab-label-small">L-sit · Ashura</span></button>
+    <button class="tab lift" data-tab="lift">Lift Day<span class="tab-label-small">Hypertrophy</span></button>
   </div>
 
   <!-- ============================================================ -->
-  <!-- ======================== SESSION 13 ======================== -->
+  <!-- ====================== SESSION 11 BIS ====================== -->
   <!-- ============================================================ -->
-  <section class="session active" id="s13">
+  <section class="session active" id="s11b">
 
     <div class="overview-card">
-      <div class="overview-title">Session 13 — "Tourne, retourne et c'est cuit !"</div>
-      <div class="overview-sub">~1h10 total. Quentin's theme: you're a piece of meat being cooked in the kitchen. A double EMOM of pull-ups + squats, then three blocks of plank cycles that shift from short-and-intense (block 1) to lower-intensity-but-higher-volume (block 3).</div>
+      <div class="overview-title">Session 11 bis — MU Optimization, Grip & Push Plyometrics</div>
+      <div class="overview-sub">~1h35 total. Structured muscle-ups (5–7 sets of 2–3), a static lunge + jump squat double pyramid, one-arm scapular pull-ups for grip, explosive clapping push-ups, and the commando plank finisher.</div>
       <div class="pills">
-        <span class="pill green">Deload · ~1h10</span>
-        <span class="pill orange">Double EMOM</span>
-        <span class="pill blue">Plank cycles ×3</span>
-        <span class="pill yellow">Intensity → volume switch</span>
+        <span class="pill orange">~1h35</span>
+        <span class="pill yellow">Structured MU</span>
+        <span class="pill new">★ Static lunge + jump squat</span>
+        <span class="pill new">★ One-arm scapular</span>
+        <span class="pill purple">Clapping push-ups</span>
       </div>
       <div class="coach-note">
         <div class="coach-note-header">🎙 Coach's message</div>
-        <div class="coach-note-body">"You're like food being cooked in the kitchen for this one. The first blocks are short but intense — endurance in the 'intensity' sense. As you go deeper, hold time per set drops but total work time rises because there are more cycles. So you switch to lower intensity, endurance in the 'cumulative hold time' sense. That's the main switch in this session."</div>
+        <div class="coach-note-body">"A few modifications from Session 11. Muscle-ups in sets of 2–3 now. Instead of chair + squats, it's static lunges + jump squats — hold the bottom of the lunge per leg, then jump squats. One-arm scapular pulls for grip — use chalk, don't release the bar between sides. Clapping push-ups: be explosive enough to leave the ground and clap. Commando plank to finish — switch fast between elbows and straight arms."</div>
       </div>
     </div>
 
-    <!-- WARM UP -->
-    <div class="block" id="b13-wu">
-      <div class="block-header" onclick="toggleBlock('b13-wu')">
+    <div class="block" id="b11b-wu">
+      <div class="block-header" onclick="toggleBlock('b11b-wu')">
         <div class="block-num muted">🔥</div>
         <div class="block-title-area"><div class="block-name">Warm-up</div><div class="block-meta">Refer to warm-up sheet</div></div>
-        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body"><div class="callout">Standard warm-up. Refer to the échauffement sheet.</div></div>
-    </div>
-
-    <!-- MISE EN ROUTE -->
-    <div class="block" id="b13-mr">
-      <div class="block-header" onclick="toggleBlock('b13-mr')">
-        <div class="block-num">1</div>
-        <div class="block-title-area"><div class="block-name">Mise en route</div><div class="block-meta">2 cycles · 45s rest between cycles</div></div>
-        <span class="block-time">5 min</span><span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="exercise-list">
-          <div class="exercise-item"><span class="exercise-item-name">Dead hang</span><span class="exercise-item-reps">30s</span></div>
-          <div class="exercise-item"><span class="exercise-item-name">Push-ups</span><span class="exercise-item-reps">8 reps</span></div>
-          <div class="exercise-item"><span class="exercise-item-name">Wall sit (chaise)</span><span class="exercise-item-reps">30s</span></div>
-        </div>
-        <div class="cycles-grid" style="grid-template-columns:repeat(2,1fr);">
-          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">1</span><span class="cycle-pip-label">Cycle</span></div>
-          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">2</span><span class="cycle-pip-label">Cycle</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DOUBLE EMOM -->
-    <div class="block" id="b13-de">
-      <div class="block-header" onclick="toggleBlock('b13-de')">
-        <div class="block-num orange">2</div>
-        <div class="block-title-area"><div class="block-name">Pull-ups & Squats — Double EMOM</div><div class="block-meta">10 min · 5 pull-ups + 15 squats per min</div></div>
-        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="callout coach">
-          <div class="callout-title">Cardio-style EMOM</div>
-          Every minute: 5 pull-ups then 15 squats. It's a bit cardio — pace yourself. Use a band for the pull-ups if it gets too hard.
-        </div>
-        <div class="emom-card">
-          <div class="emom-readout">
-            <div><div class="emom-phase" id="emom-de-phase">Idle</div><div class="emom-min" id="emom-de-min">— of 10</div></div>
-            <div class="emom-time" id="emom-de-time">60</div>
-          </div>
-          <div class="emom-controls">
-            <button class="emom-btn primary" onclick="startEmom('de',10)">Start 10 min</button>
-            <button class="emom-btn danger" onclick="stopEmom('de')">Stop</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PLANK CYCLES -->
-    <div class="block open" id="b13-pl">
-      <div class="block-header" onclick="toggleBlock('b13-pl')">
-        <div class="block-num blue">3</div>
-        <div class="block-title-area"><div class="block-name">Gainages Divers — Plank Cycles</div><div class="block-meta">3 blocks · 2 → 4 → 6 cycles · intensity drops, volume rises</div></div>
-        <span class="block-time">35 min</span><span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="callout green">
-          <div class="callout-title">The cycle rule</div>
-          No rest <strong>inside</strong> a cycle — the exercises run back-to-back. Rest as much as needed <strong>between</strong> cycles, and take a big rest between blocks. The strategy shifts from short/intense (block 1) to lower-intensity/high-volume (block 3).
-        </div>
-
-        <!-- BLOCK 1 -->
-        <div class="plank-block intense">
-          <div class="plank-block-head">
-            <span class="plank-block-cycles">2 cycles</span>
-            <span class="plank-block-strat intense">High intensity</span>
-          </div>
-          <div class="plank-block-sub">Block 1 — longest holds, fewest cycles. Performance focus.</div>
-          <div class="plank-flow">
-            <div class="plank-ex"><span class="plank-ex-name">Regular plank (face down, elbows)</span><span class="plank-ex-time">1:30</span></div>
-            <div class="plank-ex"><span class="plank-ex-name">Superman plank</span><span class="plank-ex-time">1:00</span></div>
-            <div class="plank-ex"><span class="plank-ex-name">Hollow body hold</span><span class="plank-ex-time">0:30</span></div>
-          </div>
-          <div class="plank-no-rest">⚡ No rest inside the cycle</div>
-          <div class="plank-cycle-track">
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">1</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">2</div>
-          </div>
-        </div>
-
-        <!-- BLOCK 2 -->
-        <div class="plank-block">
-          <div class="plank-block-head">
-            <span class="plank-block-cycles">4 cycles</span>
-            <span class="plank-block-strat" style="background:var(--orange-dim);color:var(--orange);">Transition</span>
-          </div>
-          <div class="plank-block-sub">Block 2 — medium holds, more cycles.</div>
-          <div class="plank-flow">
-            <div class="plank-ex"><span class="plank-ex-name">Regular plank (face down)</span><span class="plank-ex-time">1:00</span></div>
-            <div class="plank-ex"><span class="plank-ex-name">Copenhagen plank (per side)</span><span class="plank-ex-time">0:30/side</span></div>
-            <div class="plank-ex"><span class="plank-ex-name">Iso push-up (bottom hold)</span><span class="plank-ex-time">0:30</span></div>
-          </div>
-          <div class="plank-no-rest">⚡ No rest inside the cycle</div>
-          <div class="plank-cycle-track">
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">1</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">2</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">3</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">4</div>
-          </div>
-        </div>
-
-        <!-- BLOCK 3 -->
-        <div class="plank-block volume">
-          <div class="plank-block-head">
-            <span class="plank-block-cycles">6 cycles</span>
-            <span class="plank-block-strat volume">High volume</span>
-          </div>
-          <div class="plank-block-sub">Block 3 — shortest holds, most cycles. Volume focus, lower intensity.</div>
-          <div class="plank-flow">
-            <div class="plank-ex"><span class="plank-ex-name">Regular plank (face down)</span><span class="plank-ex-time">0:30</span></div>
-            <div class="plank-ex"><span class="plank-ex-name">Dynamic plank (elbows ⇄ straight arms)</span><span class="plank-ex-time">0:30</span></div>
-            <div class="plank-ex"><span class="plank-ex-name">Oblique plank (side)</span><span class="plank-ex-time">0:30</span></div>
-          </div>
-          <div class="plank-no-rest">⚡ No rest inside the cycle</div>
-          <div class="plank-cycle-track">
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">1</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">2</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">3</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">4</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">5</div>
-            <div class="plank-cycle-pip" onclick="this.classList.toggle('done')">6</div>
-          </div>
-        </div>
-
-        <div class="callout tip" style="margin-top:12px;">
-          <div class="callout-title">Movement reference</div>
-          <strong>Superman:</strong> face down, arms and legs lifted off the floor. <strong>Hollow:</strong> on your back, feet and upper back off the floor. <strong>Copenhagen:</strong> side plank with the top foot on an elevated support. <strong>Iso push-up:</strong> hold the bottom of a push-up (90° elbow, not touching floor). <strong>Dynamic:</strong> switch elbows ⇄ straight arms as fast as possible.
-        </div>
-      </div>
-    </div>
-
-    <!-- STRETCH -->
-    <div class="block" id="b13-st">
-      <div class="block-header" onclick="toggleBlock('b13-st')">
-        <div class="block-num muted">🧘</div>
-        <div class="block-title-area"><div class="block-name">Stretching</div><div class="block-meta">Full body</div></div>
-        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="stretch-grid">
-          <div class="stretch-item">Deltoids</div><div class="stretch-item">Pectorals</div>
-          <div class="stretch-item">Triceps</div><div class="stretch-item">Biceps</div>
-          <div class="stretch-item">Brachioradialis</div><div class="stretch-item">Lats</div>
-          <div class="stretch-item">Lower back</div><div class="stretch-item">Trapezius</div>
-          <div class="stretch-item">Abs</div><div class="stretch-item">Obliques</div>
-          <div class="stretch-item">Psoas</div><div class="stretch-item">Quads</div>
-          <div class="stretch-item">Adductors</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- ======================== SESSION 14 ======================== -->
-  <!-- ============================================================ -->
-  <section class="session" id="s14">
-
-    <div class="overview-card">
-      <div class="overview-title">Session 14 — Muscle-Ups & Express Pull Circuits</div>
-      <div class="overview-sub">~1h05 total. Light deload muscle-up volume (10–12 reps, or 8–12 fine), then two express pull circuits and an optional double pyramid of pull-ups + push-ups. Lots of isometric prep work in the warm-up.</div>
-      <div class="pills">
-        <span class="pill green">Deload · ~1h05</span>
-        <span class="pill orange">Muscle-ups</span>
-        <span class="pill blue">2 express circuits</span>
-        <span class="pill yellow">Double pyramid</span>
-      </div>
-      <div class="coach-note">
-        <div class="coach-note-header">🎙 Coach's message</div>
-        <div class="coach-note-body">"This is deload, so light on the muscle-ups. The important thing is progressively adding more MUs each session — build volume. Once you reach 15–20 reps, we can introduce EMOM systems and supersets combining muscle-ups and bar dips. But for now, keep it light. Use next week to rest — don't rush into every exercise."</div>
-      </div>
-    </div>
-
-    <!-- WARM UP -->
-    <div class="block" id="b14-wu">
-      <div class="block-header" onclick="toggleBlock('b14-wu')">
-        <div class="block-num muted">🔥</div>
-        <div class="block-title-area"><div class="block-name">Warm-up</div><div class="block-meta">Refer to warm-up sheet</div></div>
-        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+        <span class="block-time">15 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body"><div class="callout">Standard warm-up.</div></div>
     </div>
 
-    <!-- MISE EN ROUTE -->
-    <div class="block" id="b14-mr">
-      <div class="block-header" onclick="toggleBlock('b14-mr')">
+    <div class="block" id="b11b-mr">
+      <div class="block-header" onclick="toggleBlock('b11b-mr')">
         <div class="block-num">1</div>
-        <div class="block-title-area"><div class="block-name">Mise en route</div><div class="block-meta">3 cycles · 30s rest between cycles · lots of iso prep</div></div>
+        <div class="block-title-area"><div class="block-name">Mise en route</div><div class="block-meta">3 cycles · 30s rest between cycles</div></div>
         <span class="block-time">5 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-        <div class="callout" style="margin-top:0;margin-bottom:10px;">Lots of isometric work in squats and push-ups to prep for the muscle-ups.</div>
         <div class="exercise-list">
-          <div class="exercise-item"><span class="exercise-item-name">Plank (gainage)</span><span class="exercise-item-reps">30s</span></div>
-          <div class="exercise-item"><span class="exercise-item-name">Squats + iso bottom hold</span><span class="exercise-item-reps">12 + 12s</span></div>
-          <div class="exercise-item"><span class="exercise-item-name">Push-ups + iso bottom hold</span><span class="exercise-item-reps">8 + 20s</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Scapular pull-ups</span><span class="exercise-item-reps">8 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Regular dips</span><span class="exercise-item-reps">8 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Australian pull-ups</span><span class="exercise-item-reps">8 reps</span></div>
         </div>
         <div class="cycles-grid">
           <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">1</span><span class="cycle-pip-label">Cycle</span></div>
@@ -463,132 +271,433 @@
       </div>
     </div>
 
-    <!-- MUSCLE UPS -->
-    <div class="block" id="b14-mu">
-      <div class="block-header" onclick="toggleBlock('b14-mu')">
-        <div class="block-num orange">2</div>
-        <div class="block-title-area"><div class="block-name">Muscle-Ups</div><div class="block-meta">Free system · 10–12 reps (8–12 fine)</div></div>
-        <span class="block-time">15 min</span><span class="block-chevron">▾</span>
+    <div class="block" id="b11b-mu">
+      <div class="block-header" onclick="toggleBlock('b11b-mu')">
+        <div class="block-num red">2</div>
+        <div class="block-title-area"><div class="block-name">Muscle-Ups</div><div class="block-meta">Free system · 5–7 sets of 2–3 reps</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
         <div class="callout coach">
-          <div class="callout-title">Light deload volume</div>
-          10–12 reps, ideally without assistance (8–12 is fine). One by one or two by two — doesn't matter. Use a band if you need it. The goal is volume, rep by rep, rest by feel. Assist yourself progressively if full bodyweight is still too hard.
+          <div class="callout-title">Structured sets</div>
+          5–7 sets of 2–3 reps. <strong>NEVER pass one arm then the other</strong> over the bar — always lock your grip (thumb UNDER). Generate a swing, trigger the MU on the return at point B. Grip slightly wider than shoulders, arms extended at point B, elbows forward on the way up.
         </div>
-        <div class="counter-card">
-          <div class="counter-target">Muscle-up reps</div>
-          <div class="counter-value" id="mu14-count">0</div>
-          <div class="counter-bar"><div class="counter-fill" id="mu14-fill" style="width:0%"></div></div>
-          <div class="counter-controls">
-            <button class="counter-btn minus" onclick="adjCounter('mu14',12,-1)">−1</button>
-            <button class="counter-btn add" onclick="adjCounter('mu14',12,1)">+1</button>
-            <button class="counter-btn add" onclick="adjCounter('mu14',12,2)">+2</button>
-          </div>
-          <div class="counter-zone" id="mu14-zone">Target: 10–12 reps · 0 so far</div>
+        <div class="set-tracker">
+          <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">3</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">4</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">5</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">6</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">7</div>
         </div>
+        <div class="callout tip" style="margin-top:10px;">Sets 6 and 7 are optional — do them if your form is still clean. Use a band (15kg light / 25kg / 35kg strong) if needed.</div>
       </div>
     </div>
 
-    <!-- CIRCUIT 1 -->
-    <div class="block" id="b14-c1">
-      <div class="block-header" onclick="toggleBlock('b14-c1')">
-        <div class="block-num blue">3</div>
-        <div class="block-title-area"><div class="block-name">Circuit n°1 — Pull-ups & Push-ups</div><div class="block-meta">Descending · target under 3–4 min total</div></div>
-        <span class="block-time">3 min</span><span class="block-chevron">▾</span>
+    <div class="block" id="b11b-lj">
+      <div class="block-header" onclick="toggleBlock('b11b-lj')">
+        <div class="block-num green">3</div>
+        <div class="block-title-area"><div class="block-name">Static Lunges & Jump Squats <span class="new-badge">NEW</span></div><div class="block-meta">Double pyramid · 12 sets · hold per leg + jump squats</div></div>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-        <div class="circuit-card">
-          <div class="circuit-title">Circuit n°1</div>
-          <div class="circuit-target">Target: finish in <strong>under 3–4 min</strong> (including rests). Under 3 min is excellent but tough.</div>
-          <div class="circuit-step"><span class="circuit-step-num">1</span><span class="circuit-step-detail"><span class="ch">10 pull-ups</span> + <span class="ph">30 push-ups</span></span></div>
-          <div class="circuit-rest">— 30s rest —</div>
-          <div class="circuit-step"><span class="circuit-step-num">2</span><span class="circuit-step-detail"><span class="ch">8 pull-ups</span> + <span class="ph">20 push-ups</span></span></div>
-          <div class="circuit-rest">— 30s rest —</div>
-          <div class="circuit-step"><span class="circuit-step-num">3</span><span class="circuit-step-detail"><span class="ch">6 pull-ups</span> + <span class="ph">10 push-ups</span></span></div>
+        <div class="callout green">
+          <div class="callout-title">How each set works</div>
+          Hold the bottom of the lunge — <strong>both sides</strong> (e.g. 10s right, then 10s left) — then immediately do the jump squats. The hold time climbs 10s→20s then back down; jump squat reps match the hold number.
         </div>
-
-        <div class="stopwatch-card">
-          <div class="stopwatch-label">Circuit 1 timer</div>
-          <div class="stopwatch-time" id="sw1-time">0:00</div>
-          <div class="stopwatch-controls">
-            <button class="stopwatch-btn primary" id="sw1-btn" onclick="toggleStopwatch('sw1')">Start</button>
-            <button class="stopwatch-btn danger" onclick="resetStopwatch('sw1')">Reset</button>
-          </div>
+        <div class="dp-wrap">
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S1</span><span class="dp-hold">10s/leg</span><span class="dp-reps">10 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S2</span><span class="dp-hold">12s/leg</span><span class="dp-reps">12 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S3</span><span class="dp-hold">14s/leg</span><span class="dp-reps">14 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S4</span><span class="dp-hold">16s/leg</span><span class="dp-reps">16 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S5</span><span class="dp-hold">18s/leg</span><span class="dp-reps">18 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row peak" onclick="this.classList.toggle('done')"><span class="dp-set">S6</span><span class="dp-hold">20s/leg</span><span class="dp-reps">20 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row peak" onclick="this.classList.toggle('done')"><span class="dp-set">S7</span><span class="dp-hold">20s/leg</span><span class="dp-reps">20 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S8</span><span class="dp-hold">18s/leg</span><span class="dp-reps">18 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S9</span><span class="dp-hold">16s/leg</span><span class="dp-reps">16 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S10</span><span class="dp-hold">14s/leg</span><span class="dp-reps">14 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S11</span><span class="dp-hold">12s/leg</span><span class="dp-reps">12 jumps</span><span class="dp-check">○</span></div>
+          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S12</span><span class="dp-hold">10s/leg</span><span class="dp-reps">10 jumps</span><span class="dp-check">○</span></div>
         </div>
-
-        <div class="callout tip" style="margin-top:10px;"><div class="callout-title">To make it harder</div>Don't break the sets and reduce the rest times.</div>
       </div>
     </div>
 
-    <!-- CIRCUIT 2 -->
-    <div class="block" id="b14-c2">
-      <div class="block-header" onclick="toggleBlock('b14-c2')">
-        <div class="block-num blue">4</div>
-        <div class="block-title-area"><div class="block-name">Circuit n°2 — Iso Chin-Over-Bar & Australian Pull-ups</div><div class="block-meta">Not easy — scale the last round if needed</div></div>
+    <div class="block" id="b11b-oa">
+      <div class="block-header" onclick="toggleBlock('b11b-oa')">
+        <div class="block-num purple">4</div>
+        <div class="block-title-area"><div class="block-name">One-Arm Scapular Pull-ups <span class="new-badge">NEW</span></div><div class="block-meta">EMOM 10 min · 4–5 reps per arm per min</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout coach">
+          <div class="callout-title">Grip builder</div>
+          Hang with both arms, release one, limit body rotation, do controlled scapular pull-ups. <strong>Use chalk for grip.</strong> Don't release the bar between left and right reps! 4–5 reps per arm each minute.
+        </div>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-oa-phase">Idle</div><div class="emom-min" id="emom-oa-min">— of 10</div></div>
+            <div class="emom-time" id="emom-oa-time">60</div>
+          </div>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('oa',10)">Start 10 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('oa')">Stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b11b-cp">
+      <div class="block-header" onclick="toggleBlock('b11b-cp')">
+        <div class="block-num blue">5</div>
+        <div class="block-title-area"><div class="block-name">Clapping Push-ups <span class="new-badge">NEW</span></div><div class="block-meta">EMOM 10 min · explosive</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout coach"><div class="callout-title">Push plyometrics</div>Be explosive enough on the way up to leave the ground and clap your hands. Pick your option.</div>
+        <div class="option-grid" id="cp-opts">
+          <button class="option-btn selected" onclick="selectOpt('cp-opts', this)"><div class="option-btn-label">Option 1<span class="option-btn-tag">8 reps/min</span></div></button>
+          <button class="option-btn" onclick="selectOpt('cp-opts', this)"><div class="option-btn-label">Option 2<span class="option-btn-tag">10 reps/min</span></div></button>
+        </div>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-cp-phase">Idle</div><div class="emom-min" id="emom-cp-min">— of 10</div></div>
+            <div class="emom-time" id="emom-cp-time">60</div>
+          </div>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('cp',10)">Start 10 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('cp')">Stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b11b-co">
+      <div class="block-header" onclick="toggleBlock('b11b-co')">
+        <div class="block-num">6</div>
+        <div class="block-title-area"><div class="block-name">Commando Plank</div><div class="block-meta">Free system · 3 sets × 45s work</div></div>
         <span class="block-time">5 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
-        <div class="circuit-card">
-          <div class="circuit-title">Circuit n°2</div>
-          <div class="circuit-target">Grab the bar, hold chin over it, then switch to Australian pull-ups.</div>
-          <div class="circuit-step"><span class="circuit-step-num">1</span><span class="circuit-step-detail"><span class="ch">30s</span> chin over bar + <span class="ph">15</span> Australian pull-ups</span></div>
-          <div class="circuit-rest">— 30s rest —</div>
-          <div class="circuit-step"><span class="circuit-step-num">2</span><span class="circuit-step-detail"><span class="ch">20s</span> chin over bar + <span class="ph">10</span> Australian pull-ups</span></div>
-          <div class="circuit-rest">— 30s rest —</div>
-          <div class="circuit-step"><span class="circuit-step-num">3</span><span class="circuit-step-detail"><span class="ch">30s</span> chin over bar + <span class="ph">15</span> Australian pull-ups</span></div>
-        </div>
-
-        <div class="callout warn" style="margin-top:10px;">
-          <div class="callout-title">If round 3 is too much</div>
-          This routine is hard. If you feel mid-circuit that the last part will be too complicated, scale it down: <strong>10s chin over bar + 5 Australian pull-ups</strong> instead. That's totally fine.
-        </div>
-        <div class="callout tip" style="margin-top:8px;"><div class="callout-title">Your choice</div>Feel free to try the routine in pronation or supination grip.</div>
-      </div>
-    </div>
-
-    <!-- DOUBLE PYRAMID -->
-    <div class="block" id="b14-dp">
-      <div class="block-header" onclick="toggleBlock('b14-dp')">
-        <div class="block-num purple">5</div>
-        <div class="block-title-area"><div class="block-name">Pull-ups & Push-ups — Double Pyramid (optional)</div><div class="block-meta">9 sets · x pull-ups + (11−x) push-ups · target 3–4 min</div></div>
-        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
-      </div>
-      <div class="block-body">
-        <div class="callout coach">
-          <div class="callout-title">If you have energy left</div>
-          Each set: x pull-ups then (11−x) push-ups. Climb pull-ups 1→5, then back down. Finish as fast as possible without breaking sets — aim for 3–4 min.
-        </div>
-        <div class="dp-wrap">
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S1</span><span class="dp-pu">1 pull-up</span><span class="dp-push">10 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S2</span><span class="dp-pu">2 pull-ups</span><span class="dp-push">9 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S3</span><span class="dp-pu">3 pull-ups</span><span class="dp-push">8 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S4</span><span class="dp-pu">4 pull-ups</span><span class="dp-push">7 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row peak" onclick="this.classList.toggle('done')"><span class="dp-set">S5</span><span class="dp-pu">5 pull-ups</span><span class="dp-push">6 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S6</span><span class="dp-pu">4 pull-ups</span><span class="dp-push">7 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S7</span><span class="dp-pu">3 pull-ups</span><span class="dp-push">8 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S8</span><span class="dp-pu">2 pull-ups</span><span class="dp-push">9 push-ups</span><span class="dp-check">○</span></div>
-          <div class="dp-row" onclick="this.classList.toggle('done')"><span class="dp-set">S9</span><span class="dp-pu">1 pull-up</span><span class="dp-push">10 push-ups</span><span class="dp-check">○</span></div>
+        <div class="callout">Switch <strong>very rapidly</strong> between straight-arm plank and elbow plank for the full 45s. Recover by feel between sets.</div>
+        <div class="set-tracker">
+          <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">3</div>
         </div>
       </div>
     </div>
 
-    <!-- STRETCH -->
-    <div class="block" id="b14-st">
-      <div class="block-header" onclick="toggleBlock('b14-st')">
+    <div class="block" id="b11b-st">
+      <div class="block-header" onclick="toggleBlock('b11b-st')">
         <div class="block-num muted">🧘</div>
         <div class="block-title-area"><div class="block-name">Stretching</div><div class="block-meta">Full body</div></div>
-        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
       </div>
       <div class="block-body">
         <div class="stretch-grid">
-          <div class="stretch-item">Deltoids</div><div class="stretch-item">Triceps</div>
-          <div class="stretch-item">Biceps</div><div class="stretch-item">Brachioradialis</div>
-          <div class="stretch-item">Lats</div><div class="stretch-item">Rotator cuff</div>
-          <div class="stretch-item">Pectorals</div><div class="stretch-item">Lower back</div>
-          <div class="stretch-item">Abs</div><div class="stretch-item">Obliques</div>
-          <div class="stretch-item">Psoas</div>
+          <div class="stretch-item">Deltoids</div><div class="stretch-item">Rotator cuff</div>
+          <div class="stretch-item">Pectorals</div><div class="stretch-item">Triceps</div>
+          <div class="stretch-item">Biceps</div><div class="stretch-item">Brachialis</div>
+          <div class="stretch-item">Brachioradialis</div><div class="stretch-item">Lats</div>
+          <div class="stretch-item">Lower back</div><div class="stretch-item">Glutes</div>
+          <div class="stretch-item">Quads</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ====================== SESSION 12 BIS ====================== -->
+  <!-- ============================================================ -->
+  <section class="session" id="s12b">
+
+    <div class="overview-card">
+      <div class="overview-title">Session 12 bis — MU Reinforcement, L-Sit & Ashura Return</div>
+      <div class="overview-sub">~1h35 total. Structured muscle-ups plus a 5-stage over-the-bar hold ladder, L-sit raises, one-leg glute bridges, and the Ashura endurance routine — this time with chin-ups (supinated grip).</div>
+      <div class="pills">
+        <span class="pill orange">~1h35</span>
+        <span class="pill yellow">5-stage MU hold</span>
+        <span class="pill new">★ L-Sit raises</span>
+        <span class="pill new">★ Ashura (chin-ups)</span>
+        <span class="pill green">Glute bridges</span>
+      </div>
+      <div class="coach-note">
+        <div class="coach-note-header">🎙 Coach's message</div>
+        <div class="coach-note-body">"MU at the start: Bloc 1 is 4 sets of 2–3 reps. Bloc 2 is 5 sets where you get over the bar (MU, pseudo MU, or pullover — doesn't matter) and hold 5 positions for 5s each. Then L-sit raises, one-leg glute bridges (kept from Session 12 — important for the back of your legs), and the Ashura routine again, this time with chin-ups. Count from 0!"</div>
+      </div>
+    </div>
+
+    <div class="block" id="b12b-wu">
+      <div class="block-header" onclick="toggleBlock('b12b-wu')">
+        <div class="block-num muted">🔥</div>
+        <div class="block-title-area"><div class="block-name">Warm-up</div><div class="block-meta">Refer to warm-up sheet</div></div>
+        <span class="block-time">15 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body"><div class="callout">Standard warm-up.</div></div>
+    </div>
+
+    <div class="block" id="b12b-mr">
+      <div class="block-header" onclick="toggleBlock('b12b-mr')">
+        <div class="block-num">1</div>
+        <div class="block-title-area"><div class="block-name">Mise en route</div><div class="block-meta">3 cycles · 30s rest between cycles</div></div>
+        <span class="block-time">5 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="exercise-list">
+          <div class="exercise-item"><span class="exercise-item-name">Scapular pull-ups</span><span class="exercise-item-reps">12 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Squats</span><span class="exercise-item-reps">12 reps</span></div>
+          <div class="exercise-item"><span class="exercise-item-name">Push-ups</span><span class="exercise-item-reps">10 reps</span></div>
+        </div>
+        <div class="cycles-grid">
+          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">1</span><span class="cycle-pip-label">Cycle</span></div>
+          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">2</span><span class="cycle-pip-label">Cycle</span></div>
+          <div class="cycle-pip" onclick="this.classList.toggle('done')"><span class="cycle-pip-num">3</span><span class="cycle-pip-label">Cycle</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b12b-mu">
+      <div class="block-header" onclick="toggleBlock('b12b-mu')">
+        <div class="block-num red">2</div>
+        <div class="block-title-area"><div class="block-name">Muscle-Ups — 2 Blocs</div><div class="block-meta">Bloc 1: 4×2–3 MU · Bloc 2: 5× over-the-bar hold ladder</div></div>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout coach"><div class="callout-title">Bloc 1 — chain the MUs</div>4 sets of 2–3 reps. Use a band if needed and film a few sets for analysis.</div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px;">Bloc 1 — 4 sets × 2–3 reps</div>
+        <div class="set-tracker">
+          <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">3</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">4</div>
+        </div>
+
+        <div class="ladder-card">
+          <div class="ladder-title">Bloc 2 — Over-the-bar hold ladder · 5 sets</div>
+          <div class="ladder-sub">Get over the bar (MU, pseudo MU, or pullover), then hold each position 5s, top to bottom. Count from 0! Rest by feel between sets.</div>
+          <div class="ladder-flow">
+            <div class="ladder-step">
+              <svg class="ladder-step-icon" viewBox="0 0 28 28"><line x1="3" y1="9" x2="25" y2="9" stroke="#a07de8" stroke-width="2"/><circle cx="14" cy="16" r="4" fill="none" stroke="#cbc6bd" stroke-width="1.5"/><line x1="11" y1="9" x2="11" y2="13" stroke="#cbc6bd" stroke-width="1.5"/><line x1="17" y1="9" x2="17" y2="13" stroke="#cbc6bd" stroke-width="1.5"/></svg>
+              <span class="ladder-step-name">Straight arms above bar</span><span class="ladder-step-time">5s</span>
+            </div>
+            <div class="ladder-step">
+              <svg class="ladder-step-icon" viewBox="0 0 28 28"><line x1="3" y1="11" x2="25" y2="11" stroke="#a07de8" stroke-width="2"/><circle cx="14" cy="15" r="4" fill="none" stroke="#cbc6bd" stroke-width="1.5"/><path d="M11 11 L11 13 L9 14" stroke="#cbc6bd" stroke-width="1.5" fill="none"/><path d="M17 11 L17 13 L19 14" stroke="#cbc6bd" stroke-width="1.5" fill="none"/></svg>
+              <span class="ladder-step-name">Bent arms above bar</span><span class="ladder-step-time">5s</span>
+            </div>
+            <div class="ladder-step">
+              <svg class="ladder-step-icon" viewBox="0 0 28 28"><line x1="3" y1="13" x2="25" y2="13" stroke="#a07de8" stroke-width="2"/><circle cx="14" cy="10" r="3.5" fill="none" stroke="#cbc6bd" stroke-width="1.5"/></svg>
+              <span class="ladder-step-name">Chin above bar</span><span class="ladder-step-time">5s</span>
+            </div>
+            <div class="ladder-step">
+              <svg class="ladder-step-icon" viewBox="0 0 28 28"><line x1="3" y1="11" x2="25" y2="11" stroke="#a07de8" stroke-width="2"/><circle cx="14" cy="15" r="3.5" fill="none" stroke="#cbc6bd" stroke-width="1.5"/></svg>
+              <span class="ladder-step-name">Head under bar</span><span class="ladder-step-time">5s</span>
+            </div>
+            <div class="ladder-step">
+              <svg class="ladder-step-icon" viewBox="0 0 28 28"><line x1="3" y1="8" x2="25" y2="8" stroke="#a07de8" stroke-width="2"/><line x1="14" y1="8" x2="14" y2="18" stroke="#cbc6bd" stroke-width="1.5"/><circle cx="14" cy="22" r="3" fill="none" stroke="#cbc6bd" stroke-width="1.5"/></svg>
+              <span class="ladder-step-name">Dead hang</span><span class="ladder-step-time">5s</span>
+            </div>
+          </div>
+          <div class="ladder-sets">
+            <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
+            <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
+            <div class="set-pip" onclick="this.classList.toggle('done')">3</div>
+            <div class="set-pip" onclick="this.classList.toggle('done')">4</div>
+            <div class="set-pip" onclick="this.classList.toggle('done')">5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b12b-ls">
+      <div class="block-header" onclick="toggleBlock('b12b-ls')">
+        <div class="block-num orange">3</div>
+        <div class="block-title-area"><div class="block-name">L-Sit Raises <span class="new-badge">NEW</span></div><div class="block-meta">EMOM 10 min · 8–10 reps per min</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout coach"><div class="callout-title">Form</div>From the dips position, raise straight legs to horizontal. Slow the descent (~2s) for more difficulty. If too hard, break the EMOM and finish 80–100 reps in free sets.</div>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-ls-phase">Idle</div><div class="emom-min" id="emom-ls-min">— of 10</div></div>
+            <div class="emom-time" id="emom-ls-time">60</div>
+          </div>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('ls',10)">Start 10 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('ls')">Stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b12b-gb">
+      <div class="block-header" onclick="toggleBlock('b12b-gb')">
+        <div class="block-num green">4</div>
+        <div class="block-title-area"><div class="block-name">One-Leg Glute Bridge</div><div class="block-meta">EMOM 8 min · 25s hold per leg per min</div></div>
+        <span class="block-time">8 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout green"><div class="callout-title">Tight timing</div>25s hold per leg each minute means only ~10s rest. If too hard, break the EMOM and finish 8 sets per side. Feet closer to glutes = more glute; feet farther = more hamstring.</div>
+        <div class="emom-card">
+          <div class="emom-readout">
+            <div><div class="emom-phase" id="emom-gb-phase">Idle</div><div class="emom-min" id="emom-gb-min">— of 8</div></div>
+            <div class="emom-time" id="emom-gb-time">60</div>
+          </div>
+          <div class="emom-controls">
+            <button class="emom-btn primary" onclick="startEmom('gb',8)">Start 8 min</button>
+            <button class="emom-btn danger" onclick="stopEmom('gb')">Stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b12b-ash">
+      <div class="block-header" onclick="toggleBlock('b12b-ash')">
+        <div class="block-num red">5</div>
+        <div class="block-title-area"><div class="block-name">Chin-ups & Dead Hang — Ashura <span class="new-badge">ENDURANCE</span></div><div class="block-meta">Pyramid · Bloc 1 finds N · Bloc 2 repeats N times · chin-ups now</div></div>
+        <span class="block-time">10 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout warn">
+          <div class="callout-title">How the Ashura works</div>
+          <strong>This time: chin-ups (supinated grip), not pull-ups.</strong><br><br>
+          <strong>Bloc 1 — one continuous set:</strong> 1 chin-up → 1s dead hang → 2 → 2s → 3 → 3s → ... until failure. No rest. The stage you fail at = <strong>N</strong>.<br><br>
+          <strong>Bloc 2 — N sets:</strong> each repeats the Bloc 1 structure until failure. At least 2:30 rest between sets. You'll decline across sets — that's normal.<br><br>
+          <strong>Count dead hang from 0!</strong> The hang is active recovery — forearms still gripping.
+        </div>
+
+        <div class="ashura-card">
+          <div class="ashura-title">Bloc 1 — Find your N</div>
+          <div class="ashura-sub">One continuous set. No rest. Chin-ups (supinated). Go until failure.</div>
+          <div class="ashura-stage"><span class="ashura-stage-num">1</span><span class="ashura-stage-detail"><strong>1 chin-up</strong> → 1s dead hang</span></div>
+          <div class="ashura-stage"><span class="ashura-stage-num">2</span><span class="ashura-stage-detail"><strong>2 chin-ups</strong> → 2s dead hang</span></div>
+          <div class="ashura-stage"><span class="ashura-stage-num">3</span><span class="ashura-stage-detail"><strong>3 chin-ups</strong> → 3s dead hang</span></div>
+          <div class="ashura-stage"><span class="ashura-stage-num">…</span><span class="ashura-stage-detail">Continue until failure → that stage = <strong>N</strong></span></div>
+        </div>
+
+        <div class="log-card">
+          <div class="log-title">Log your Ashura</div>
+          <div class="log-row"><label>Bloc 1 — N (failed at stage)<input type="number" id="ash12b-n" placeholder="e.g. 5"></label></div>
+          <div class="log-row"><label>Bloc 2 — stages reached per set<textarea id="ash12b-b2" placeholder="e.g. 5, 4, 4, 3, 3"></textarea></label></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b12b-pk">
+      <div class="block-header" onclick="toggleBlock('b12b-pk')">
+        <div class="block-num">6</div>
+        <div class="block-title-area"><div class="block-name">Plank (optional)</div><div class="block-meta">2 sets × 2 min · ~1:30 rest between</div></div>
+        <span class="block-time">6 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="callout">Face-down plank on the elbows — <strong>no position changes</strong> during the 2 min (unlike the commando plank). Ideally keep rest under 1:30 between the two sets.</div>
+        <div class="set-tracker">
+          <div class="set-pip" onclick="this.classList.toggle('done')">1</div>
+          <div class="set-pip" onclick="this.classList.toggle('done')">2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="b12b-st">
+      <div class="block-header" onclick="toggleBlock('b12b-st')">
+        <div class="block-num muted">🧘</div>
+        <div class="block-title-area"><div class="block-name">Stretching</div><div class="block-meta">Full body — extended list</div></div>
+        <span class="block-time">20 min</span><span class="block-chevron">▾</span>
+      </div>
+      <div class="block-body">
+        <div class="stretch-grid">
+          <div class="stretch-item">Deltoids</div><div class="stretch-item">Rotator cuff</div>
+          <div class="stretch-item">Pectorals</div><div class="stretch-item">Triceps</div>
+          <div class="stretch-item">Biceps</div><div class="stretch-item">Brachialis</div>
+          <div class="stretch-item">Brachioradialis</div><div class="stretch-item">Lats</div>
+          <div class="stretch-item">Lower back</div><div class="stretch-item">Abs</div>
+          <div class="stretch-item">Obliques</div><div class="stretch-item">Psoas</div>
+          <div class="stretch-item">Hamstrings</div><div class="stretch-item">Glutes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ======================== LIFT DAY ========================== -->
+  <!-- ============================================================ -->
+  <section class="session" id="lift">
+
+    <div class="overview-card">
+      <div class="overview-title">Lift Day — Hypertrophy for the Gymnast Look</div>
+      <div class="overview-sub">~50 min, straight sets (no supersets, so you keep your stations). Slot this between Quentin's two sessions so all three days are evenly spaced. The goal here is visible muscle — the controlled tempo and 8–15 rep ranges are what your skill work doesn't prioritize.</div>
+      <div class="pills">
+        <span class="pill blue">~50 min</span>
+        <span class="pill blue">Straight sets</span>
+        <span class="pill yellow">Hypertrophy 8–15 reps</span>
+        <span class="pill purple">Controlled tempo</span>
+      </div>
+      <div class="coach-note blue">
+        <div class="coach-note-header">📋 How this fits</div>
+        <div class="coach-note-body">"This complements Quentin's programming — it doesn't replace it. The exercise selection deliberately avoids heavy overhead pressing and pull-up variations since he hammers those already. The gymnast look is shoulders, upper chest, back width, and arms over a lean base — that's what these movements target. Progress by adding small weight, not reps. And this only works if you're eating enough protein: ~130–145g/day."</div>
+      </div>
+    </div>
+
+    <div class="callout warn" style="margin-top:0;margin-bottom:14px;">
+      <div class="callout-title">One note on timing</div>
+      You just finished a deload week. Start this third day on a normal training week, not a recovery one. Two hard pulling/pushing sessions plus this should still leave a rest day or two — if you feel beat up, drop a set off each exercise rather than skipping.
+    </div>
+
+    <div class="lift-station">Bench + dumbbells area</div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">1</span><span class="lift-ex-name">Incline dumbbell press</span><span class="lift-ex-scheme">4 × 10</span></div>
+      <div class="lift-ex-detail">Upper chest + front delts. <span class="tempo">Tempo 3-1-1-0</span> (3s down, 1s pause, drive up). Rest 90s. Last 2–3 reps should be genuinely hard.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">4</div></div>
+    </div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">3</span><span class="lift-ex-name">Dumbbell lateral raises</span><span class="lift-ex-scheme">3 × 15</span></div>
+      <div class="lift-ex-detail">Side delts — the key to width and the "gymnast shoulder" look. Controlled, no swinging. Rest 60s.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div></div>
+    </div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">4</span><span class="lift-ex-name">Dumbbell curls</span><span class="lift-ex-scheme">3 × 12</span></div>
+      <div class="lift-ex-detail">Direct biceps. <span class="tempo">Tempo 3-0-1-0</span> (slow eccentric). Rest 60s.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div></div>
+    </div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">7</span><span class="lift-ex-name">Bulgarian split squats (DB)</span><span class="lift-ex-scheme">3 × 10/leg</span></div>
+      <div class="lift-ex-detail">Loaded unilateral leg work — fills the gap left by Quentin's mostly-isometric leg training. <span class="tempo">Tempo 3-1-1-0</span>. Rest 90s.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div></div>
+    </div>
+
+    <div class="lift-station">Cable station</div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">2</span><span class="lift-ex-name">Cable rows (or seated rows)</span><span class="lift-ex-scheme">4 × 12</span></div>
+      <div class="lift-ex-detail">Back thickness. <span class="tempo">Tempo 3-0-1-1</span> — squeeze hard at the top for 1s. Rest 90s.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">4</div></div>
+    </div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">5</span><span class="lift-ex-name">Overhead cable triceps ext.</span><span class="lift-ex-scheme">3 × 12</span></div>
+      <div class="lift-ex-detail">Long head of the triceps — adds arm size. Full stretch overhead. Rest 60s.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div></div>
+    </div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">6</span><span class="lift-ex-name">Face pulls (or reverse flys)</span><span class="lift-ex-scheme">3 × 15</span></div>
+      <div class="lift-ex-detail">Rear delts + upper back — posture and the 3D shoulder look. Rest 60s.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div></div>
+    </div>
+
+    <div class="lift-ex">
+      <div class="lift-ex-head"><span class="lift-ex-num">8</span><span class="lift-ex-name">Cable crunches</span><span class="lift-ex-scheme">3 × 15</span></div>
+      <div class="lift-ex-detail">Weighted core for visible abs once you're lean. Rest 45s.</div>
+      <div class="lift-set-pips"><div class="lift-set-pip" onclick="this.classList.toggle('done')">1</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">2</div><div class="lift-set-pip" onclick="this.classList.toggle('done')">3</div></div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Numbers are circled in the order you'd run them (1→8)</div>
+      They're grouped by station here so you only set up twice: bench/dumbbells first (1, 3, 4, 7), then cables (2, 5, 6, 8). Run them in numbered order if you prefer the original sequence — the station grouping just saves you the walk.
     </div>
   </section>
 
@@ -598,82 +707,36 @@
       try {
         if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
         const o = audioCtx.createOscillator(), g = audioCtx.createGain();
-        o.frequency.value = freq; o.type = 'sine'; o.connect(g); g.connect(audioCtx.destination);
+        o.frequency.value = freq; o.type='sine'; o.connect(g); g.connect(audioCtx.destination);
         g.gain.setValueAtTime(0, audioCtx.currentTime);
         g.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime+0.01);
         g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+dur);
         o.start(); o.stop(audioCtx.currentTime+dur);
       } catch(e){}
     }
+    function toggleBlock(id){ document.getElementById(id).classList.toggle('open'); }
+    function selectOpt(gid, el){ document.querySelectorAll('#'+gid+' .option-btn').forEach(b=>b.classList.remove('selected')); el.classList.add('selected'); }
 
-    function toggleBlock(id) { document.getElementById(id).classList.toggle('open'); }
-    function selectOpt(gid, el) { document.querySelectorAll('#'+gid+' .option-btn').forEach(b=>b.classList.remove('selected')); el.classList.add('selected'); }
-
-    // GENERIC COUNTER
-    const counters = {};
-    function adjCounter(id, target, delta) {
-      if(!counters[id]) counters[id] = 0;
-      counters[id] = Math.max(0, counters[id] + delta);
-      const v = counters[id];
-      document.getElementById(id+'-count').textContent = v;
-      document.getElementById(id+'-fill').style.width = Math.min(100,(v/target)*100)+'%';
-      const z = document.getElementById(id+'-zone');
-      if(v >= target) { z.className='counter-zone in-range'; z.textContent=`✓ Target hit — ${v} reps!`; }
-      else { z.className='counter-zone'; z.textContent=`Target: ${id==='mu14'?'10–12':target} reps · ${v} so far`; }
-    }
-
-    // EMOM TIMERS
     const emoms = {};
-    function stopEmom(id) {
+    function stopEmom(id){
       if(emoms[id]) clearInterval(emoms[id].iv);
       delete emoms[id];
       const t=document.getElementById('emom-'+id+'-time'), p=document.getElementById('emom-'+id+'-phase'), m=document.getElementById('emom-'+id+'-min');
-      if(t) t.textContent='60'; if(p){p.textContent='Idle';p.className='emom-phase';} if(m) m.textContent='— of 10';
+      if(t) t.textContent='60'; if(p){p.textContent='Idle';p.className='emom-phase';}
     }
-    function startEmom(id, total) {
+    function startEmom(id, total){
       stopEmom(id);
       let s=60, cur=1;
       const t=document.getElementById('emom-'+id+'-time'), p=document.getElementById('emom-'+id+'-phase'), m=document.getElementById('emom-'+id+'-min');
       p.textContent=`🔔 GO — Min ${cur}`; p.className='emom-phase go'; m.textContent=`Min ${cur} of ${total}`; t.textContent=s; beep(1000,0.2);
       emoms[id]={iv:setInterval(()=>{
         s--;
-        if(s>0){t.textContent=s;if(s<=3)beep(1200,0.08);}
-        else{cur++;if(cur>total){clearInterval(emoms[id].iv);delete emoms[id];p.textContent='✓ Complete';p.className='emom-phase done';t.textContent='✓';m.textContent=`Done · ${total} of ${total}`;beep(660,0.5);return;}
+        if(s>0){t.textContent=s; if(s<=3)beep(1200,0.08);}
+        else{cur++; if(cur>total){clearInterval(emoms[id].iv);delete emoms[id];p.textContent='✓ Complete';p.className='emom-phase done';t.textContent='✓';m.textContent=`Done · ${total} of ${total}`;beep(660,0.5);return;}
         s=60;p.textContent=`🔔 GO — Min ${cur}`;m.textContent=`Min ${cur} of ${total}`;t.textContent=s;beep(1000,0.25);}
       },1000)};
     }
 
-    // STOPWATCH
-    const stopwatches = {};
-    function toggleStopwatch(id) {
-      const btn = document.getElementById(id+'-btn');
-      if(stopwatches[id] && stopwatches[id].running) {
-        clearInterval(stopwatches[id].iv);
-        stopwatches[id].running = false;
-        btn.textContent = 'Resume';
-        btn.classList.remove('primary');
-      } else {
-        if(!stopwatches[id]) stopwatches[id] = { secs: 0, running: false };
-        stopwatches[id].running = true;
-        btn.textContent = 'Pause';
-        btn.classList.add('primary');
-        beep(1000, 0.15);
-        stopwatches[id].iv = setInterval(()=>{
-          stopwatches[id].secs++;
-          const s = stopwatches[id].secs;
-          const m = Math.floor(s/60), r = s%60;
-          document.getElementById(id+'-time').textContent = `${m}:${String(r).padStart(2,'0')}`;
-        }, 1000);
-      }
-    }
-    function resetStopwatch(id) {
-      if(stopwatches[id]) { clearInterval(stopwatches[id].iv); delete stopwatches[id]; }
-      const btn = document.getElementById(id+'-btn');
-      btn.textContent = 'Start'; btn.classList.add('primary');
-      document.getElementById(id+'-time').textContent = '0:00';
-    }
-
-    // TABS
     document.querySelectorAll('.tabs .tab').forEach(btn=>{
       btn.addEventListener('click',()=>{
         document.querySelectorAll('.session').forEach(s=>s.classList.remove('active'));
@@ -683,11 +746,8 @@
       });
     });
 
-    // Double pyramid check styling
     document.querySelectorAll('.dp-row').forEach(r=>{
-      const obs = new MutationObserver(()=>{
-        r.querySelector('.dp-check').textContent = r.classList.contains('done') ? '✓' : '○';
-      });
+      const obs = new MutationObserver(()=>{ r.querySelector('.dp-check').textContent = r.classList.contains('done') ? '✓' : '○'; });
       obs.observe(r, {attributes:true, attributeFilter:['class']});
     });
   </script>

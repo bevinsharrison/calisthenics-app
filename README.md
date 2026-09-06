@@ -1,27 +1,17 @@
-# Calisthenics App V1
+# Calisthenics App — Week 31/32 update
 
-Local-first static training app built around two weekly coach sessions plus adaptive supplemental work.
+This project keeps the same localStorage key (`cal_v1`), so installing this update on the same Vercel URL preserves existing workout history and weights stored on that device.
 
-## V1
-- Permanent Week + Progress shell
-- Coach vs supplemental sessions clearly separated
-- Weekly workout data separated from app code
-- Canonical exercise IDs
-- Local persistence from normal workout interactions
-- Minimal manual logging only for meaningful benchmarks
-- One-tap post-session recovery
-- Weight/waist optional
-- Export/import backup
+## What's new
+- Week 31/32 deload plan, organized Mon–Wed.
+- Coach Session 32 with coach-focus context from the voice notes.
+- Coach Session 31 plank protocol with selectable Easy / Medium / Hard timing.
+- One supplemental strength session biased toward legs, vertical pressing and posterior chain.
+- "Last time" display for weighted strength exercises.
+- Strength inputs now save on every input change instead of waiting for the field to lose focus.
+- Prior week data remains loaded in the app so old logs can be matched to recurring exercises.
 
-## Existing GitHub/Vercel deployment
-Your screenshots show Vercel deploying the `bevinsharrison/calisthenics-app` GitHub repo. Replace the repo root with these files, commit to `main`, and Vercel should redeploy automatically.
+## Deploy
+Replace the files in the existing GitHub repository with these files and commit to `main`. Vercel should redeploy automatically.
 
-## Weekly workflow
-1. Upload 2 coach PDFs + transcript.
-2. Decode/translate instructions.
-3. Add a new `data/weeks/week-XX.js` file.
-4. Tag workload and recurring exercises.
-5. Generate 0–2 supplemental sessions, usually 1, around gaps/recovery.
-6. Add the new week script to `index.html` and push.
-
-History lives in browser localStorage, so export a backup occasionally.
+Do **not** clear site/browser data if you want to keep local workout history. Use Settings → Export backup before changing phones or clearing browser data.

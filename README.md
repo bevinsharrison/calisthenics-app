@@ -1,17 +1,12 @@
-# Calisthenics App — Week 31/32 update
+# Calisthenics App — Sessions 33 & 34
 
-This project keeps the same localStorage key (`cal_v1`), so installing this update on the same Vercel URL preserves existing workout history and weights stored on that device.
-
-## What's new
-- Week 31/32 deload plan, organized Mon–Wed.
-- Coach Session 32 with coach-focus context from the voice notes.
-- Coach Session 31 plank protocol with selectable Easy / Medium / Hard timing.
-- One supplemental strength session biased toward legs, vertical pressing and posterior chain.
-- "Last time" display for weighted strength exercises.
-- Strength inputs now save on every input change instead of waiting for the field to lose focus.
-- Prior week data remains loaded in the app so old logs can be matched to recurring exercises.
+Current block:
+- Session 33: Cindy 20-minute AMRAP benchmark + 4:30 rotating plank.
+- Session 34: muscle-up/bar-dip/pull-up supersets, lunge EMOM, front-lever EMOM, push-up EMOM, finisher.
+- No supplemental strength session this week; optional 15–20 minute handstand skill only.
 
 ## Deploy
-Replace the files in the existing GitHub repository with these files and commit to `main`. Vercel should redeploy automatically.
+Replace the contents of the existing GitHub repo with the contents of this folder and commit to `main`. Vercel should redeploy automatically.
 
-Do **not** clear site/browser data if you want to keep local workout history. Use Settings → Export backup before changing phones or clearing browser data.
+## History
+The app continues to use the same `cal_v1` browser localStorage key. Replacing the deployed files does not erase workout history on the phone/browser. Do not clear the site's browser data. Old week files remain included so prior strength logs can still be surfaced as “Last time.”

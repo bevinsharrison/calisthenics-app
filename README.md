@@ -1,12 +1,12 @@
-# Calisthenics App — Sessions 33 & 34
+# Calisthenics App — Sessions 35 & 36
 
-Current block:
-- Session 33: Cindy 20-minute AMRAP benchmark + 4:30 rotating plank.
-- Session 34: muscle-up/bar-dip/pull-up supersets, lunge EMOM, front-lever EMOM, push-up EMOM, finisher.
-- No supplemental strength session this week; optional 15–20 minute handstand skill only.
+Current travel-block plan:
+- Tuesday: rest (Session 34 was completed Monday)
+- Wednesday: Session 36 — Planche Conditioning
+- Thursday–Monday: Munich / recovery
+- After Munich: Session 35 split into 35A Strength/Volume and 35B Human Flag + Front Lever, as Quentin explicitly suggested in his voice notes.
 
 ## Deploy
-Replace the contents of the existing GitHub repo with the contents of this folder and commit to `main`. Vercel should redeploy automatically.
+Replace the contents of your existing GitHub `calisthenics-app` repo with the contents of this folder and commit to `main`. Vercel should redeploy automatically.
 
-## History
-The app continues to use the same `cal_v1` browser localStorage key. Replacing the deployed files does not erase workout history on the phone/browser. Do not clear the site's browser data. Old week files remain included so prior strength logs can still be surfaced as “Last time.”
+Your workout history and previously entered weights are stored in browser localStorage under the same app storage key, so replacing these repo files does not erase them. Do not clear browser/site data on your phone.

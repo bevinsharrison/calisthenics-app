@@ -1,12 +1,16 @@
-# Calisthenics App — Sessions 35 & 36
+# Calisthenics App — Sessions 37 & 38
 
-Current travel-block plan:
-- Tuesday: rest (Session 34 was completed Monday)
-- Wednesday: Session 36 — Planche Conditioning
-- Thursday–Monday: Munich / recovery
-- After Munich: Session 35 split into 35A Strength/Volume and 35B Human Flag + Front Lever, as Quentin explicitly suggested in his voice notes.
+This build adds the current coach block while preserving the same localStorage key (`cal_v1`), so existing history/weights remain on the same phone/browser.
+
+## This week
+- Session 37 is split into 37A + 37B because the full prescription is 20 muscle-ups, 300 push-ups and 80 pull-ups. Coach explicitly allowed splitting it.
+- Session 38 is the technical/isometric day: tuck front-lever ladder, human flag, handstand, grip isometrics, optional L-sit.
+- No extra supplemental strength session is added this week because coach volume is already high.
 
 ## Deploy
-Replace the contents of your existing GitHub `calisthenics-app` repo with the contents of this folder and commit to `main`. Vercel should redeploy automatically.
+1. Unzip this folder.
+2. Replace the files in the existing GitHub repo with these files.
+3. Commit to `main`.
+4. Vercel should redeploy automatically.
 
-Your workout history and previously entered weights are stored in browser localStorage under the same app storage key, so replacing these repo files does not erase them. Do not clear browser/site data on your phone.
+Do not clear browser/site data on the phone if you want to preserve locally stored training history.
